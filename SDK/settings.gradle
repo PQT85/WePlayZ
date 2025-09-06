@@ -1,0 +1,3 @@
+include ':sdk_mg'
+include ':app'
+rootProject.name = "My Application"

@@ -1,0 +1,131 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+//apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'com.google.gms.google-services'
+
+apply plugin: 'com.google.firebase.crashlytics'
+
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 33
+    buildToolsVersion "29.0.2"
+    useLibrary 'org.apache.http.legacy'
+    ndkVersion = "21.3.6528147"
+    defaultConfig {
+        applicationId "com.daihiep.thinhkinh"
+        minSdkVersion 21
+        targetSdkVersion 35
+        multiDexEnabled true
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.debug
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            debuggable false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        debug{
+            debuggable true
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    viewBinding {
+        enabled = true
+    }
+    buildFeatures {
+        viewBinding true
+    }
+    signingConfigs {
+//        release {
+//            keyAlias 'migame'
+//            keyPassword 'BaoNgoc2017'
+//            storeFile file("/Users/songpq/Desktop/OutSource/Migame/Migame_Android/SDKMiGaAndroid/app/MiGame.jks")
+//            storePassword 'BaoNgoc2017'
+//        }
+//        debug {
+//            keyAlias 'migame'
+//            keyPassword 'BaoNgoc2017'
+//            storeFile file("/Users/songpq/Desktop/OutSource/Migame/Migame_Android/SDKMiGaAndroid/app/MiGame.jks")
+//            storePassword 'BaoNgoc2017'
+//        }
+
+
+        release {
+            keyAlias 'migamestore'
+            keyPassword 'BaoNgoc2017'
+            storeFile file("key_game_09.jks")
+            storePassword 'BaoNgoc2017'
+        }
+
+        debug {
+            keyAlias 'migamestore'
+            keyPassword 'BaoNgoc2017'
+            storeFile file("key_game_09.jks")
+            storePassword 'BaoNgoc2017'
+        }
+
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+//    implementation fileTree(dir: 'libs', include: ['*.jar'])
+//    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+//    implementation 'androidx.appcompat:appcompat:1.2.0'
+//    implementation 'androidx.core:core-ktx:1.3.1'
+//    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
+//    testImplementation 'junit:junit:4.12'
+//    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+//    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    //implementation 'androidx.core:core-ktx:1.10.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+
+
+
+
+    implementation 'com.android.support:multidex:1.0.3'
+    implementation project(path: ':sdk_mg')
+
+    testImplementation 'junit:junit:4.12'
+    // Facebook SDK
+    implementation 'com.facebook.android:facebook-android-sdk:14.1.1'
+
+    // Google+ SDK
+    implementation 'com.google.android.gms:play-services-auth:17.0.0'
+
+    //appsflyer
+    implementation 'com.appsflyer:af-android-sdk:5.1.0'
+    implementation 'com.android.installreferrer:installreferrer:1.0'
+
+    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
+
+    implementation 'com.google.firebase:firebase-analytics:21.2.1'
+
+    implementation 'com.google.firebase:firebase-crashlytics:18.3.6'
+
+    implementation 'com.google.firebase:firebase-crashlytics-ndk:18.3.6'
+
+    implementation 'com.google.firebase:firebase-messaging:23.1.2'
+    implementation 'com.google.firebase:firebase-inappmessaging-display:20.1.2'
+
+
+
+}

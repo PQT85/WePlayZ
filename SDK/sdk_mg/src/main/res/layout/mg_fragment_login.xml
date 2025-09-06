@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+
+    >
+    <include layout="@layout/mg_fragment_layout_back" android:id="@+id/mg_fragment_login_ll_back"/>
+    <androidx.core.widget.NestedScrollView
+        android:paddingLeft="@dimen/mg_padding_left_right_content"
+        android:paddingRight="@dimen/mg_padding_left_right_content"
+
+        android:layout_below="@+id/mg_fragment_login_ll_back"
+        android:id="@+id/fragment_login_main_scrollview"
+        android:layout_width="match_parent"
+        android:foregroundGravity="center"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:paddingBottom="1dp"
+
+            android:id="@+id/fragment_login_ll_input"
+            android:layout_gravity="center|top"
+            android:gravity="center|top"
+            android:paddingLeft="@dimen/padding_left_right_input"
+            android:paddingRight="@dimen/padding_left_right_input"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/text_title_large"
+                android:layout_gravity="center"
+                android:text="@string/mg_main_account_text_title_main"
+                android:layout_marginBottom="@dimen/mg_padding_top_bottom_button"
+                />
+<!--            <LinearLayout-->
+<!--                android:visibility="gone"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content">-->
+<!--                <ImageView-->
+<!--                    android:focusable="true"-->
+<!--                    android:layout_margin="2dp"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="@dimen/migamesdk_height_logo_gg"-->
+<!--                    android:scaleType="fitCenter"-->
+<!--                    android:src="@drawable/migamesdk_logo_gg"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:id="@+id/fragment_login_iv_logo"-->
+<!--                    android:layout_weight="1"-->
+<!--                    />-->
+<!--&lt;!&ndash;                <ImageView&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:visibility="gone"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_marginLeft="5dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_gravity="center"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:scaleType="fitCenter"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_width="@dimen/migamesdk_height_logo_gg"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:src="@drawable/migamesdk_logo_18_plus"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_height="@dimen/migamesdk_height_logo_gg"/>&ndash;&gt;-->
+<!--            </LinearLayout>-->
+
+        <EditText
+            android:maxLength="32"
+            android:layout_marginTop="@dimen/mg_spacing_edittext_input"
+            android:paddingRight="50dp"
+            style="@style/item_edittext_input"
+            android:id="@+id/mg_fragment_login_ed_account"
+            android:drawableLeft="@drawable/user"
+            android:hint="@string/mg_fragment_login_hint_acc"
+
+
+            />
+        <RelativeLayout
+            android:id="@+id/el_password"
+            android:layout_marginTop="@dimen/mg_spacing_edittext_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <EditText
+
+                style="@style/item_edittext_input"
+                android:paddingRight="50dp"
+
+                android:id="@+id/mg_fragment_login_ed_pass"
+                android:drawableLeft="@drawable/lock1"
+                android:hint="@string/mg_fragment_login_hint_pass"
+                android:inputType="textPassword"
+                />
+            <ImageView
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/invisible"
+                android:layout_width="40dp"
+                android:id="@+id/mg_fragment_login_iv_eye"
+                android:padding="4dp"
+                android:scaleType="fitCenter"
+                android:layout_alignTop="@+id/mg_fragment_login_ed_pass"
+                android:layout_alignBottom="@+id/mg_fragment_login_ed_pass"
+                android:layout_height="match_parent"/>
+        </RelativeLayout>
+            <LinearLayout android:id="@+id/fragment_auth_llCaptchar"
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/mg_spacing_edittext_input"
+
+                android:layout_height="wrap_content">
+                <EditText
+                    android:maxLength="3"
+                    android:paddingRight="10dp"
+                    style="@style/item_edittext_input"
+                    android:id="@+id/mg_fragment_login_ed_capt"
+                    android:drawableLeft="@drawable/lock2"
+                    android:hint="@string/mg_text_fragment_login_hint_captcha"
+                    android:paddingLeft="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="40dp"
+                    android:drawablePadding="5dp"
+                    />
+                <LinearLayout
+                    android:layout_marginLeft="5dp"
+                    android:layout_gravity="center"
+
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:id="@+id/mg_fragment_login_capt_iv1"
+                        android:padding="4dp"
+                        android:scaleType="fitCenter"
+
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"/>
+                    <ImageView
+                        android:id="@+id/mg_fragment_login_capt_iv2"
+                        android:padding="4dp"
+                        android:scaleType="fitCenter"
+
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"/>
+                    <ImageView
+                        android:id="@+id/mg_fragment_login_capt_iv3"
+                        android:padding="4dp"
+                        android:scaleType="fitCenter"
+
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"/>
+                </LinearLayout>
+            </LinearLayout>
+        <LinearLayout
+            android:layout_marginLeft="9dp"
+            android:layout_marginRight="9dp"
+                android:layout_marginTop="1dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <CheckBox
+                android:id="@+id/mg_fragment_login_ck_save_pass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mg_fragment_login_hint_remember_pass"
+                android:layout_weight="1"
+                android:maxLines="2"
+                android:singleLine="false"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:buttonTint="@color/colorRegister"
+                android:checked="true"
+                android:textStyle="bold"
+                android:textColor="@color/colorRegister"
+                />
+            <View
+                android:layout_width="6dp"
+                android:layout_height="1dp"/>
+            <TextView
+                android:visibility="visible"
+                android:id="@+id/mg_fragment_login_tv_forget_pass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="2"
+                android:singleLine="false"
+                android:text="@string/mg_fragment_login_hint_forget_pass"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:textStyle="bold"
+                android:textColor="@color/colorRegister"
+                />
+        </LinearLayout>
+<!--            <LinearLayout-->
+<!--                android:layout_marginTop="5dp"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                >-->
+                <TextView
+                    android:layout_width="@dimen/mg_fragment_login_width_button"
+                    android:layout_marginTop="@dimen/mg_spacing_edittext_input"
+                    style="@style/item_main_button"
+                    android:background="@drawable/mg_bg_button_login_selector"
+                    android:text="@string/mg_main_account_text_title_main"
+                    android:id="@+id/mg_fragment_login_tv_login"
+                    android:layout_weight="1"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorBackground"
+                    />
+<!--                <View-->
+
+<!--                    android:layout_width="20dp"-->
+<!--                    android:layout_height="wrap_content"></View>-->
+<!--                <TextView-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:textAllCaps="true"-->
+<!--                    android:layout_weight="1"-->
+<!--                    style="@style/item_button_large"-->
+<!--                    android:background="@drawable/mg_bg_button_gradient_blue_selector"-->
+<!--                    android:text="@string/mg_text_action_new_register"-->
+<!--                    android:id="@+id/mg_fragment_login_tv_register"-->
+<!--                    />-->
+<!--            </LinearLayout>-->
+<!--        <LinearLayout-->
+<!--            android:layout_marginTop="5dp"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content">-->
+<!--            <View style="@style/Line"-->
+<!--                android:layout_weight="1"-->
+<!--                android:layout_gravity="center"-->
+<!--                />-->
+<!--            <TextView-->
+<!--                android:layout_weight="0"-->
+<!--                style="@style/text_small"-->
+<!--                android:text="@string/mg_text_login_social"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_centerHorizontal="true"-->
+<!--                android:paddingLeft="14dp"-->
+<!--                android:paddingRight="14dp"-->
+<!--                />-->
+<!--            <View style="@style/Line"-->
+<!--                android:layout_weight="1"-->
+<!--                android:layout_gravity="center"-->
+<!--                />-->
+<!--        </LinearLayout>-->
+            <TextView
+                android:layout_marginTop="@dimen/mg_spacing_button_main"
+                android:layout_width="@dimen/mg_fragment_login_width_button"
+                android:textColor="@color/colorBackground"
+                android:textStyle="bold"
+                android:textAllCaps="true"
+                android:layout_weight="1"
+                style="@style/item_main_button"
+                android:background="@drawable/mg_bg_button_register_selector"
+                android:text="@string/mg_fragment_login_text_register"
+                android:id="@+id/mg_fragment_login_tv_register"
+                />
+<!--        <LinearLayout-->
+<!--            android:visibility="gone"-->
+<!--            android:layout_marginTop="5dp"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:layout_height="wrap_content">-->
+<!--            <LinearLayout-->
+<!--                android:id="@+id/mg_fragment_login_ll_qp"-->
+<!--                android:gravity="center|right"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+
+<!--                >-->
+<!--                <ImageView-->
+<!--                    android:layout_width="@dimen/mg_size_icon_button"-->
+<!--                    android:layout_height="@dimen/mg_size_icon_button"-->
+<!--                    android:src="@drawable/mg_btn_qp"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    />-->
+<!--                <TextView-->
+<!--                    android:visibility="gone"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:background="@android:color/transparent"-->
+
+<!--                    android:id="@+id/mg_fragment_login_tv_quick_play"-->
+<!--                    style="@style/item_button_large"-->
+<!--                    android:text="@string/mg_text_action_login_google"-->
+<!--                    />-->
+<!--            </LinearLayout>-->
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="0dp"/>-->
+
+<!--            <LinearLayout-->
+<!--                android:id="@+id/mg_fragment_login_ll_fb"-->
+<!--                android:layout_weight="1"-->
+<!--                android:gravity="center"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content">-->
+<!--                <ImageView-->
+<!--                    android:layout_width="@dimen/mg_size_icon_button"-->
+<!--                    android:layout_height="@dimen/mg_size_icon_button"-->
+<!--                    android:src="@drawable/mg_btn_facebook"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    />-->
+<!--                <TextView-->
+<!--                    android:visibility="gone"-->
+<!--                    android:id="@+id/mg_fragment_login_tv_login_fb"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    style="@style/item_button_large"-->
+<!--                    android:background="@android:color/transparent"-->
+<!--                    android:text="@string/mg_text_action_login_facebook"-->
+<!--                />-->
+<!--            </LinearLayout>-->
+<!--            <View-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="0dp"/>-->
+<!--            <LinearLayout-->
+<!--                android:id="@+id/mg_fragment_login_ll_gg"-->
+<!--                android:gravity="center|left"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+
+<!--                >-->
+<!--                <ImageView-->
+<!--                    android:layout_width="@dimen/mg_size_icon_button"-->
+<!--                    android:layout_height="@dimen/mg_size_icon_button"-->
+<!--                    android:src="@drawable/mg_btn_google"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    />-->
+<!--                <TextView-->
+<!--                    android:visibility="gone"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:background="@android:color/transparent"-->
+
+<!--                    android:id="@+id/mg_fragment_login_tv_login_google"-->
+<!--                    style="@style/item_button_large"-->
+<!--                    android:text="@string/mg_text_action_login_google"-->
+<!--                    />-->
+<!--            </LinearLayout>-->
+
+<!--        </LinearLayout>-->
+<!--        <TextView-->
+<!--            android:layout_marginTop="@dimen/mg_spacing_edittext_input"-->
+<!--            style="@style/item_button_large"-->
+<!--            android:background="@drawable/mg_bg_button_main_selector"-->
+<!--            android:text="@string/mg_text_action_quick_play"-->
+<!--            android:id="@+id/mg_fragment_login_tv_quick_play"-->
+<!--            />-->
+
+    </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+<!--    <include android:layout_alignParentTop="true" android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content" layout="@layout/top_bar_icon" android:id="@+id/activity_login_top_bar"/>-->
+<!--    <ImageView-->
+
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_below="@+id/activity_login_top_bar"-->
+<!--        android:layout_above="@+id/activity_login_ll_input"-->
+<!--        android:paddingBottom="@dimen/padding_top_bottom_input"-->
+<!--        android:paddingTop="@dimen/padding_top_bottom_input"-->
+
+<!--        android:visibility="invisible"-->
+<!--        android:scaleType="fitCenter"-->
+<!--        />-->
+
+
+<!--    <include android:layout_below="@+id/activity_login_top_bar" layout="@layout/view_result_load_layout"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"/>-->
+
+</RelativeLayout>

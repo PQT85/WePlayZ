@@ -1,0 +1,223 @@
+<resources>
+    <string name="title_activity_m_g">FullscreenActivity</string>
+
+
+
+    <string name="mg_main_account_text_title_main">ĐĂNG NHẬP</string>
+
+    <!--string name="facebook_app_id">202497911742167</string-->
+    <!--string name="facebook_app_id">347050497239570</string-->
+
+
+    //chien vuong tam quoc
+<!--    <string name="facebook_app_id">202497911742167</string>-->
+
+<!--    <string name="fb_login_protocol_scheme">fb202497911742167</string>-->
+<!--    <string name="facebook_client_token">7ec72f57e31863ebc5f8689991b12ddf</string>-->
+
+/////wow Vuong Gia
+
+    <string name="facebook_app_id">1621016325318446</string>
+
+    <string name="fb_login_protocol_scheme">fb1621016325318446</string>
+    <string name="facebook_client_token">9a4ae05c0b4c34faafee87d0a81416bc</string>
+
+
+    <string name="mg_text_force_sync_account">Bạn phải đồng bộ tài khoản để tiếp tục</string>
+
+    <string name="mg_main_account_text_button_migame">MIGAME ID</string>
+    <string name="mg_main_account_text_button_fb">Đăng nhập Facebook</string>
+    <string name="mg_main_account_text_button_gg">Đăng nhập Google</string>
+    <string name="mg_main_account_text_button_qp">Chơi ngay</string>
+	<string name="mg_text_error_banner_config">Chưa đọc được Banner ở config.</string>
+    <string name="mg_text_error_get_banner">Tải quảng cáo lỗi.</string>
+
+
+    <string name="mg_fragment_register_hint_acc">Tên tài khoản(*)</string>
+    <string name="mg_fragment_register_hint_pass">Nhập mật khẩu(*)</string>
+    <string name="mg_fragment_register_hint_pass_again">Nhập lại mật khẩu(*)</string>
+    <string name="mg_fragment_register_hint_email">Email</string>
+    <string name="mg_fragment_register_hint_phone_number">Số điện thoại</string>
+    <string name="mg_fragment_register_more_info">Bổ sung thông tin</string>
+    <string name="mg_fragment_register_hint_name">Họ và tên</string>
+    <string name="mg_fragment_register_hint_gender_male">Nam</string>
+    <string name="mg_fragment_register_hint_gender_female">Nữ</string>
+    <string name="mg_fragment_register_hint_gender_other">Khác</string>
+    <string name="mg_fragment_register_hint_dob">Ngày sinh</string>
+    <string name="mg_fragment_register_hint_persional_id">CMND</string>
+    <string name="mg_fragment_register_hint_persional_id_date">Ngày cấp</string>
+    <string name="mg_fragment_register_hint_address">Địa chỉ</string>
+
+    <string name="mg_fragment_register_text_register">ĐĂNG KÝ</string>
+    <string name="mg_fragment_sync_title_sync">ĐỒNG BỘ TÀI KHOẢN</string>
+    <string name="mg_fragment_sync_action_sync">ĐỒNG BỘ</string>
+    <string name="mg_fragment_login_text_register">ĐĂNG KÝ MỚI</string>
+    <string name="mg_fragment_register_text_policy">Chính sách tài khoản!</string>
+
+
+
+    <string name="mg_fragment_login_hint_acc">Tên tài khoản(*)</string>
+    <string name="mg_fragment_login_hint_pass">Nhập mật khẩu(*)</string>
+    <string name="mg_fragment_login_hint_remember_pass">Nhớ mật khẩu</string>
+    <string name="mg_fragment_login_hint_forget_pass">Quên mật khẩu</string>
+
+
+    <string name="mg_text_no_network">Thiết bị chưa có kết nội mạng!</string>
+    <string name="mg_text_unknown_error">Có lỗi xảy ra!</string>
+    <string name="mg_text_message_title">Thông báo!</string>
+    <string name="mg_text_account_or_email">Vui lòng nhập tên tài khoản / email để lấy mật khẩu.</string>
+    <string name="mg_text_hint_account_or_email">Tài khoản/email</string>
+    <string name="mg_text_cancel">Huỷ</string>
+    <string name="mg_text_confirm">Xác nhận</string>
+
+    <string name="mg_text_skip_sync">Bỏ qua</string>
+
+    <string name="mg_text_login_facebook_error">Đăng nhập tài khoản Facebook lỗi!</string>
+    <string name="mg_text_login_facebook_success">Đăng nhập tài khoản Facebook thành công!</string>
+    <string name="mg_text_login_facebook_cancel">Bạn huỷ đăng nhập Facebook!</string>
+    <string name="mg_text_login_google_success">Đăng nhập tài khoản Google thành công!</string>
+    <string name="mg_text_login_google_error">Đăng nhập tài khoản Google lỗi!</string>
+    <string name="mg_text_fragment_login_hint_captcha">Xác nhận:</string>
+
+    <string name="mg_text_forget_pass_login">Đăng nhập</string>
+    <string name="mg_text_forget_pass_register">Đăng ký</string>
+    <string name="mg_text_forget_pass_email_required">Tài khoản hoặc email là bắt buộc</string>
+
+
+
+    <string name="mg_text_email_or_phone">Bạn phải nhập email hoặc tài khoản</string>
+    <string name="mg_text_warning_empty_account">Tên đăng nhập bắt buộc</string>
+    <string name="mg_text_warning_invalid_fullname">Họ tên từ 6 - 60 kí tự</string>
+    <string name="mg_text_warning_invalid_account1">Tên đăng nhập dài 6 - 32 kí tự thường và số</string>
+    <string name="mg_text_warning_invalid_account2">Tên đăng nhập không được có kí tự đặc biệt</string>
+
+
+
+    <string name="mg_text_invalid_confirm_pass">Mật khẩu không trùng khớp</string>
+    <string name="mg_text_invalid_dob">Ngày sinh không hợp lệ</string>
+    <string name="mg_text_invalid_date_id">Ngày cấp không hợp lệ</string>
+    <string name="mg_text_invalid_email">Email không hợp lệ</string>
+    <string name="mg_invalid_phone">Số điện thoại không hợp lệ</string>
+
+    <string name="mg_text_hint_phone">Số điện thoại</string>
+    <string name="mg_text_hint_phone_optional">Số điện thoại(tùy chọn)</string>
+
+    <string name="mg_text_hint_email">Email</string>
+    <string name="mg_text_hint_email_optional">Email(Tùy chọn)</string>
+
+
+    <string name="mg_text_error_empty_email_phone">Tài khoản hoặc email là bắt buộc</string>
+
+
+    <string name="mg_text_error_empty_account">Tên đăng nhập bắt buộc</string>
+    <string name="mg_text_error_invalid_fullname">Họ tên từ 6 - 60 kí tự</string>
+    <string name="mg_text_error_invalid_account1">Tên đăng nhập dài 6 - 32 kí tự thường và số</string>
+    <string name="mg_text_error_invalid_account2">Tên đăng nhập không được có kí tự đặc biệt</string>
+
+    <string name="mg_text_error_empty_fullname">Họ tên là bắt buộc</string>
+    <string name="mg_text_error_empty_dob">Ngày sinh là bắt buộc</string>
+    <string name="mg_text_error_empty_date_id">Ngày cấp là bắt buộc</string>
+    <string name="mg_text_error_empty_id">CMND/Passport là bắt buộc</string>
+    <string name="mg_text_error_empty_address">Địa chỉ là bắt buộc</string>
+    <string name="mg_text_error_empty_phone">SĐT là bắt buộc</string>
+    <string name="mg_text_error_empty_email">Email là bắt buộc</string>
+
+
+    <string name="mg_text_error_empty_pass">Mật khẩu bắt buộc</string>
+    <string name="mg_text_error_invalid_pass">Chiều dài 6 - 32 kí tự,1 chữ cái(A-Z) và số</string>
+    <string name="mg_text_request_push_permission_title">Yêu cầu cấp quyền!</string>
+    <string name="mg_text_request_push_permision_content">Vui lòng cấp quyền để nhận được thông báo mới nhất trong game.</string>
+    <string name="mg_cancel_request">Từ chối</string>
+    <string name="mg_accept_request">Đồng ý</string>
+
+<!--    <string name="mg_purchase_signature_not_validity">Purchase signature not validity</string>-->
+    <string name="mg_info_payment_faild">Thông tin thanh toán không hợp lệ!</string>
+    <string name="mg_purchase_signature_not_validity">Ký gói thanh toán không hợp lệ</string>
+    <string name="mg_unspecified_request">Không xác định được yêu cầu</string>
+<!--    <string name="mg_connection_errors_payment">Lỗi kết nối: BillingServiceDisconnected</string>-->
+    <string name="mg_connection_errors_payment">Lỗi kết nối đến thanh toán Playstore</string>
+    <string name="mg_payment_failed">Thanh toán không thành công</string>
+    <string name="mg_you_have_canceled_your_payment">Bạn đã hủy thanh toán</string>
+    <string name="mg_text_error_payment">Quá trình thanh toán có sự cố.Vui lòng thử lại.</string>
+    <string name="mg_no_matching_packages_found">Gói thanh toán không tồn tại {s}.</string>
+
+    <string name="mg_payments_are_being_processed_please_try_again_in_a_few_minutes">Thanh toán đang được xử lý. Vui lòng thử lại sau vài phút!</string>
+
+ //event tracking login 
+  <string name="mg_event_click_login">Click_Login</string>
+  <string name="mg_event_login_success">Login_Success</string>
+  <string name="mg_event_login_failed">Login_Failed</string>
+  
+   //event tracking login fb
+    <string name="mg_event_click_login_fb">Login_FB</string>
+    <string name="mg_event_login_fb_success">Login_FB_Success</string>
+    <string name="mg_event_login_fb_failed">Login_FB_Failed</string>
+
+    //event tracking login gg
+    <string name="mg_event_click_login_gg">Login_GG</string>
+    <string name="mg_event_login_gg_success">Login_GG_Success</string>
+    <string name="mg_event_login_gg_failed">Login_GG_Failed</string>
+
+	//event tracking login validate
+    <string name="mg_event_login_validate">Login_Validate</string>
+    <string name="mg_event_login_validate_success">Login_Validate_Success</string>
+    <string name="mg_event_login_validate_failed">Login_Validate_Failed</string>
+
+    //event tracking sync validate
+    <string name="mg_event_sync_validate">Sync_Validate</string>
+    <string name="mg_event_sync_validate_success">Sync_Validate_Success</string>
+    <string name="mg_event_sync_validate_failed">Sync_Validate_Failed</string>
+
+
+    //event tracking register validate
+    <string name="mg_event_register_validate">Register_Validate</string>
+    <string name="mg_event_register_validate_success">Register_Validate_Success</string>
+    <string name="mg_event_register_validate_failed">Register_Validate_Failed</string>
+
+
+    //event tracking verify accesstoken
+    <string name="mg_event_verify_token">Call_VerifyToken</string>
+    <string name="mg_event_verify_token_success">VerifyToken_Success</string>
+    <string name="mg_event_verify_token_failed">VerifyToken_Failed</string>
+	
+	//event tracking sync
+    <string name="mg_event_click_sync">Sync_Acc</string>
+    <string name="mg_event_sync_success">Sync_Success</string>
+    <string name="mg_event_sync_failed">Sync_Failed</string>
+	
+	//event tracking register
+    <string name="mg_event_click_register">Click_Register</string>
+    <string name="mg_event_register_success">Register_Success</string>
+    <string name="mg_event_register_failed">Register_Failed</string>
+
+	//event tracking login quick play
+    <string name="mg_event_click_login_qp">Login_QP</string>
+    <string name="mg_event_login_qp_success">Login_QP_Success</string>
+    <string name="mg_event_login_qp_failed">Login_QP_Failed</string>
+
+
+    //event tracking payment
+    <string name="mg_event_click_payment">Click_Payment</string>
+    <string name="mg_event_payment_success">Payment_Success</string>
+    <string name="mg_event_payment_failed">Payment_Failed</string>
+
+    //event tracking payment iap
+    <string name="mg_event_choose_payment_iap">Click_Payment_IAP</string>
+    <string name="mg_event_payment_success_iap">Payment_IAP_Success</string>
+    <string name="mg_event_payment_failed_iap">Payment_IAP_Cancel</string>
+
+    //event tracking payment micon
+    <string name="mg_event_choose_payment_micoin">Click_Payment_WALLET</string>
+    <string name="mg_event_payment_success_micoin">Payment_Wallet_Success</string>
+    <string name="mg_event_payment_failed_micoin">Payment_Wallet_Cancel</string>
+
+    <string name="mg_event_payment_total_payment">mgsdk_Tracking_Payment_Total_Payment</string>
+    <string name="mg_event_payment_total_complete_success">Payment_Total_Complete_Success</string>
+   <string name="mg_event_payment_total_complete_failed">Payment_Total_Complete_Failed</string>
+
+    <string name="mg_event_revenue_iap"> Payment_IAP_Revenue</string>
+    <string name="mg_event_revenue_micoin"> Payment_Wallet_Revenue</string>
+    <string name="mg_event_revenue_total">Revenue_Total</string>
+
+
+</resources>

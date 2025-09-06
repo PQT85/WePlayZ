@@ -1,0 +1,22 @@
+<resources>
+
+    <color name="black_overlay">#66000000</color>
+
+
+    <color name="colorMgPrimary">#029dff</color>
+    <color name="colorMgPrimaryDark">#024ce0</color>
+    <color name="colorMgSdkAccent">#255dfa</color>
+
+
+    <color name="colorTitle">@color/colorMgSdkAccent</color>
+    <color name="colorMainButtonSelected">#77255dfa</color>
+
+
+    <color name="colorBgInput">#f2f2f2</color>
+
+    <color name="colorBackground">#ffffff</color>
+    <color name="colorRegister">#3e495a</color>
+    <color name="colorPress">#996600</color>
+    <color name="colorTextAction">#656e7a</color>
+
+</resources>

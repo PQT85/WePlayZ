@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+
+    >
+
+    <include
+        android:id="@+id/mg_fragment_sync_ll_back"
+        layout="@layout/mg_fragment_layout_back" />
+    <androidx.core.widget.NestedScrollView
+        android:layout_below="@+id/mg_fragment_sync_ll_back"
+        android:paddingLeft="@dimen/mg_padding_left_right_content"
+        android:paddingRight="@dimen/mg_padding_left_right_content"
+        android:layout_width="match_parent"
+        android:foregroundGravity="center"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/mg_fragment_sync_ll_input"
+            android:layout_gravity="center|top"
+            android:gravity="center|top"
+
+            android:paddingLeft="@dimen/padding_left_right_input"
+            android:paddingRight="@dimen/padding_left_right_input"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/text_title_large"
+
+                android:text="@string/mg_fragment_sync_title_sync"
+                android:layout_marginBottom="@dimen/mg_padding_top_bottom_button"
+                />
+<!--            <ImageView-->
+<!--                android:visibility="gone"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="@dimen/mg_height_logo_gg"-->
+<!--                android:scaleType="fitCenter"-->
+
+<!--                android:layout_gravity="center"-->
+<!--                android:id="@+id/mg_fragment_sync_iv_logo"-->
+<!--                />-->
+            <EditText
+                android:layout_marginTop="@dimen/mg_spacing_edittext_input"
+                android:paddingRight="50dp"
+                style="@style/item_edittext_input"
+                android:id="@+id/mg_fragment_sync_ed_account"
+                android:drawableLeft="@drawable/user"
+                android:hint="@string/mg_fragment_register_hint_acc"
+
+                android:drawablePadding="5dp"
+                />
+            <RelativeLayout
+                android:id="@+id/mg_fragment_sync_el_password"
+                android:layout_marginTop="@dimen/mg_spacing_edittext_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                >
+
+                <EditText
+                    style="@style/item_edittext_input"
+                    android:paddingRight="50dp"
+                    android:drawableLeft="@drawable/lock1"
+                    android:id="@+id/mg_fragment_sync_ed_pass"
+                    android:hint="@string/mg_fragment_register_hint_pass"
+                    android:inputType="textPassword"
+                    android:drawablePadding="5dp"
+                    />
+                <ImageView
+                    android:padding="4dp"
+                    android:id="@+id/mg_fragment_sync_iv_eye"
+                    android:scaleType="fitCenter"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/invisible"
+                    android:layout_width="40dp"
+                    android:layout_alignTop="@+id/mg_fragment_sync_ed_pass"
+                    android:layout_alignBottom="@+id/mg_fragment_sync_ed_pass"
+                    android:layout_height="match_parent"/>
+            </RelativeLayout>
+            <RelativeLayout
+                    android:id="@+id/mg_fragment_sync_el_confirmPassword"
+                    android:layout_marginTop="@dimen/mg_spacing_edittext_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+
+                    >
+
+                    <EditText
+
+                        style="@style/item_edittext_input"
+                        android:paddingRight="50dp"
+
+                        android:id="@+id/mg_fragment_sync_ed_Confirmpass"
+                        android:drawableLeft="@drawable/lock1"
+                        android:hint="@string/mg_fragment_register_hint_pass_again"
+                        android:inputType="textPassword"
+                        android:drawablePadding="5dp"
+                        />
+                    <ImageView
+                        android:scaleType="fitCenter"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/invisible"
+                        android:layout_width="40dp"
+                        android:padding="4dp"
+                        android:id="@+id/mg_fragment_sync_iv_eye_confirm"
+                        android:layout_alignTop="@+id/mg_fragment_sync_ed_Confirmpass"
+                        android:layout_alignBottom="@+id/mg_fragment_sync_ed_Confirmpass"
+                        android:layout_height="match_parent"/>
+                </RelativeLayout>
+
+            <TextView
+                    android:visibility="gone"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingRight="10dp"
+                    android:id="@+id/mg_fragment_sync_tv_info_user"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/collapse"
+                    android:text="@string/mg_fragment_register_more_info"
+                    />
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    android:id="@+id/mg_fragment_sync_ll_info_user"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <EditText
+                        android:layout_marginTop="@dimen/mg_spacing_edittext_input"
+                        android:paddingRight="50dp"
+                        style="@style/item_edittext_input"
+                        android:id="@+id/mg_fragment_sync_ed_phone"
+                        android:drawableLeft="@drawable/phone"
+                        android:hint="@string/mg_fragment_register_hint_phone_number"
+                        android:inputType="phone"
+                        android:drawablePadding="5dp"
+                        />
+                    <EditText
+                        android:paddingRight="50dp"
+                        android:layout_marginTop="@dimen/mg_spacing_edittext_input"
+                        style="@style/item_edittext_input"
+                        android:id="@+id/mg_fragment_sync_ed_email"
+                        android:inputType="textEmailAddress"
+                        android:drawableLeft="@drawable/email"
+                        android:hint="@string/mg_fragment_register_hint_email"/>
+                <EditText
+                    android:layout_marginTop="@dimen/mg_spacing_edittext_input"
+                    android:paddingRight="50dp"
+                    style="@style/item_edittext_input"
+                    android:id="@+id/mg_fragment_sync_ed_fullname"
+                    android:drawableLeft="@drawable/user"
+                    android:hint="@string/mg_fragment_register_hint_name"
+
+                    android:drawablePadding="5dp"
+                    />
+                <RadioGroup
+                    android:id="@+id/mg_fragment_sync_rg_gender"
+                    android:layout_marginTop="@dimen/mg_spacing_edittext_input"
+                    style="@style/item_edittext_input"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+
+                    android:paddingLeft="8dp"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:textColor="@color/black_overlay"
+                        android:id="@+id/mg_fragment_sync_rdo_male"
+                        android:checked="true"
+                        android:buttonTint="@color/colorTitle"
+                        android:text="@string/mg_fragment_register_hint_gender_male"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <RadioButton
+                        android:textColor="@color/black_overlay"
+                        android:layout_marginLeft="3dp"
+                        android:id="@+id/mg_fragment_sync_rdo_female"
+                        android:buttonTint="@color/colorTitle"
+                        android:text="@string/mg_fragment_register_hint_gender_female"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <RadioButton
+                        android:textColor="@color/black_overlay"
+                        android:layout_marginLeft="3dp"
+                        android:id="@+id/mg_fragment_sync_rdo_other"
+                        android:buttonTint="@color/colorTitle"
+                        android:text="@string/mg_fragment_register_hint_gender_other"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </RadioGroup>
+                <vn.mgjsc.sdk.views.EditViewClickDrawable
+                    android:paddingRight="50dp"
+                    android:layout_marginTop="@dimen/mg_spacing_edittext_input"
+                    style="@style/item_edittext_input"
+                    android:inputType="date"
+                    android:id="@+id/mg_fragment_sync_ed_dob"
+                    android:drawableLeft="@drawable/date"
+                    android:drawableRight="@drawable/date"
+                    android:hint="@string/mg_fragment_register_hint_dob"/>
+
+                <EditText
+                    android:paddingRight="50dp"
+                    android:layout_marginTop="@dimen/mg_spacing_edittext_input"
+                    style="@style/item_edittext_input"
+                    android:id="@+id/mg_fragment_sync_ed_id"
+                    android:drawableLeft="@drawable/cmnd"
+                    android:hint="@string/mg_fragment_register_hint_persional_id"/>
+
+                <vn.mgjsc.sdk.views.EditViewClickDrawable
+                    android:paddingRight="50dp"
+                    android:layout_marginTop="@dimen/mg_spacing_edittext_input"
+                    style="@style/item_edittext_input"
+                    android:id="@+id/mg_fragment_sync_ed_date_id"
+                    android:drawableLeft="@drawable/date"
+
+                    android:drawableRight="@drawable/date"
+                    android:inputType="date"
+                    android:hint="@string/mg_fragment_register_hint_persional_id_date"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:paddingRight="50dp"
+                    android:minHeight="66dp"
+                    android:maxLines="3"
+                    android:minLines="3"
+                    android:lines="3"
+                    android:ems="3"
+                    android:layout_marginTop="@dimen/mg_spacing_edittext_input"
+                    style="@style/item_edittext_input"
+                    android:singleLine="true"
+                    android:id="@+id/mg_fragment_sync_ed_address"
+                    android:drawableLeft="@drawable/map"
+                    android:imeOptions="actionDone"
+                    android:inputType="textCapSentences|textImeMultiLine"
+                    android:scrollHorizontally="true"
+                    android:maxLength="600"
+                    android:scrollbars="vertical"
+
+                    android:hint="@string/mg_fragment_register_hint_address"/>
+                </LinearLayout>
+                <TextView
+                    android:background="@drawable/mg_bg_button_register_selector"
+                    android:layout_marginTop="@dimen/mg_spacing_edittext_input"
+                    style="@style/item_main_button"
+                    android:textColor="@color/colorBackground"
+                    android:textAllCaps="true"
+                    android:text="@string/mg_fragment_sync_action_sync"
+                    android:id="@+id/mg_fragment_sync_tv_sync"
+                />
+                <TextView
+                    android:background="@drawable/mg_bg_button_login_selector"
+                    android:layout_marginTop="@dimen/mg_spacing_edittext_input"
+                    style="@style/item_main_button"
+                    android:textColor="@color/colorBackground"
+                    android:textAllCaps="true"
+                    android:text="@string/mg_text_skip_sync"
+                    android:id="@+id/mg_fragment_sync_tv_skip"
+                />
+<!--            <LinearLayout-->
+<!--                android:visibility="gone"-->
+<!--                android:layout_marginTop="@dimen/mg_spacing_edittext_input"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content">-->
+<!--                <View style="@style/Line"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    />-->
+<!--                <TextView-->
+<!--                    android:layout_weight="0"-->
+<!--                    style="@style/text_small"-->
+<!--                    android:text="@string/mg_text_login_social"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_centerHorizontal="true"-->
+<!--                    android:paddingLeft="4dp"-->
+<!--                    android:paddingRight="4dp"-->
+<!--                    />-->
+<!--                <View style="@style/Line"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    />-->
+<!--            </LinearLayout>-->
+<!--            <LinearLayout-->
+<!--                android:visibility="gone"-->
+<!--                android:layout_marginTop="@dimen/mg_spacing_edittext_input"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:layout_height="wrap_content">-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:gravity="center"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:id="@+id/mg_fragment_sync_ll_login_fb"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content">-->
+<!--                    <ImageView-->
+<!--                        android:layout_width="@dimen/mg_size_icon_button"-->
+<!--                        android:layout_height="@dimen/mg_size_icon_button"-->
+<!--                        android:src="@drawable/mg_btn_facebook"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:id="@+id/mg_fragment_sync_iv_fb"-->
+<!--                        />-->
+<!--                    <TextView-->
+<!--                        android:visibility="gone"-->
+<!--                        android:id="@+id/mg_fragment_sync_tv_login_fb"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        style="@style/item_button_large"-->
+<!--                        android:background="@android:color/transparent"-->
+<!--                        android:text="@string/mg_text_action_login_facebook"-->
+<!--                    />-->
+<!--                </LinearLayout>-->
+<!--                <View-->
+<!--                    android:layout_width="20dp"-->
+<!--                    android:layout_height="0dp"/>-->
+<!--                <LinearLayout-->
+<!--                    android:gravity="center"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:id="@+id/mg_fragment_sync_ll_login_google"-->
+<!--                    >-->
+<!--                    <ImageView-->
+<!--                        android:layout_width="@dimen/mg_size_icon_button"-->
+<!--                        android:layout_height="@dimen/mg_size_icon_button"-->
+<!--                        android:src="@drawable/mg_btn_google"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:id="@+id/mg_fragment_sync_iv_gg"-->
+<!--                        />-->
+
+<!--                    <TextView-->
+<!--                        android:visibility="gone"-->
+<!--                        android:id="@+id/mg_fragment_sync_tv_login_google"-->
+<!--                        style="@style/item_button_large"-->
+
+<!--                        android:layout_width="wrap_content"-->
+
+<!--                        android:background="@android:color/transparent"-->
+<!--                        android:text="@string/mg_text_action_login_google" />-->
+<!--                </LinearLayout>-->
+<!--            </LinearLayout>-->
+
+<!--                <TextView-->
+<!--                    android:layout_marginTop="@dimen/mg_spacing_edittext_input"-->
+<!--                    android:gravity="right"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:id="@+id/mg_fragment_sync_tv_login"-->
+<!--                    style="@style/text_normal"-->
+<!--                    android:text="@string/mg_text_action_has_account"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:maxLines="2"-->
+<!--                    android:singleLine="false"-->
+<!--                    android:paddingTop="4dp"-->
+<!--                    android:paddingBottom="4dp"-->
+<!--                    android:textColor="@color/mg_cl_text_action"-->
+<!--                    />-->
+                <TextView
+                android:layout_width="wrap_content"
+                    android:visibility="invisible"
+                style="@style/text_default"
+                    android:id="@+id/mg_fragment_sync_tv_policy"
+                android:layout_marginTop="5dp"
+                    android:textStyle="italic"
+                android:layout_marginBottom="5dp"
+
+                android:textColor="@color/black_overlay"
+                android:text="@string/mg_fragment_register_text_policy"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+<!--    <include android:layout_alignParentTop="true" android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content" layout="@layout/top_bar_icon" android:id="@+id/activity_login_top_bar"/>-->
+<!--    <ImageView-->
+
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_below="@+id/activity_login_top_bar"-->
+<!--        android:layout_above="@+id/activity_login_ll_input"-->
+<!--        android:paddingBottom="@dimen/padding_top_bottom_input"-->
+<!--        android:paddingTop="@dimen/padding_top_bottom_input"-->
+
+<!--        android:visibility="invisible"-->
+<!--        android:scaleType="fitCenter"-->
+<!--        />-->
+
+
+<!--    <include android:layout_below="@+id/activity_login_top_bar" layout="@layout/view_result_load_layout"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"/>-->
+
+</RelativeLayout>

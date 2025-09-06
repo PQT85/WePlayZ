@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="@android:color/transparent"
+
+    tools:context=".BannerMiGameActivity">
+    <RelativeLayout
+
+        app:layout_constraintHeight_percent="0.9"
+        app:layout_constraintWidth_percent="0.9"
+        android:gravity="center"
+        android:id="@+id/activity_banner_migame_llContainer"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_height="0dp"
+        android:layout_width="0dp"
+        android:background="@android:color/transparent"
+        >
+        <LinearLayout
+            android:layout_margin="10dp"
+            android:orientation="vertical"
+            app:layout_constraintCircleRadius="20dp"
+            android:background="@drawable/mg_bg_radius"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/activity_banner_migame_ll_bg"
+            >
+        <FrameLayout
+
+            android:layout_weight="1"
+            android:layout_gravity="center"
+
+            android:foregroundGravity="center"
+            android:layout_above="@+id/activity_banner_migame_bottom"
+            android:id="@+id/activity_banner_migame_frContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+<!--            <WebView-->
+<!--                android:id="@+id/activity_banner_migame_wv"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"/>-->
+
+
+<vn.mgjsc.sdk.views.LollipopFixedWebView
+                android:id="@+id/activity_banner_migame_wv"
+                style="@style/Widget.AppCompat.ProgressBar"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/dialog_webview_close"
+                android:layout_gravity="center"
+                tools:ignore="MissingClass" />
+            <ImageView
+                android:id="@+id/activity_banner_migame_iv"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:scaleType="centerInside"
+                android:adjustViewBounds="true"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </FrameLayout>
+
+        <LinearLayout
+
+            android:visibility="visible"
+            android:id="@+id/activity_banner_migame_bottom"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_height="wrap_content">
+            <CheckBox
+                android:layout_gravity="center"
+                android:id="@+id/activity_banner_migame_chk_skip"
+                android:visibility="invisible"
+                android:text="Không hiển thị lại"
+                android:layout_width="wrap_content"
+
+                android:gravity="left|center"
+                android:layout_weight="1"
+
+
+                style="@style/text_default"
+
+
+                android:maxLines="2"
+                android:singleLine="false"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:buttonTint="#ff3f00"
+                android:checked="true"
+                android:textStyle="bold"
+                android:textColor="@color/colorTextAction"
+
+                />
+
+
+            <TextView
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:text="1.0.0"
+                android:id="@+id/activity_banner_migame_tv_version"
+                android:layout_width="wrap_content"
+                android:gravity="right|center"
+                style="@style/item_edittext_input"
+                android:textStyle="italic|bold"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/activity_banner_migame_ivClose"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+
+            android:layout_alignParentRight="true"
+            android:padding="10dp"
+            android:layout_marginRight="-6dp"
+            android:layout_marginTop="-6dp"
+            app:srcCompat="@drawable/close" />
+        <ProgressBar
+            android:layout_centerInParent="true"
+            android:id="@+id/activity_banner_loading"
+            style="@style/Widget.AppCompat.ProgressBar"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center" />
+    </RelativeLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

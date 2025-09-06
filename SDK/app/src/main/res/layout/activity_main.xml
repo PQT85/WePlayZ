@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#224422"
+    tools:context="com.example.myapplication.MainActivity">
+
+    <EditText
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="App Key"
+        style="@style/item_edittext_input"
+        android:id="@+id/edAppKey"
+        android:visibility="invisible"
+        ></EditText>
+    <EditText
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/edAppKey"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Secret Key"
+        style="@style/item_edittext_input"
+        android:id="@+id/edSecretKey"
+        android:visibility="invisible"
+        ></EditText>
+    <EditText
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/edSecretKey"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Google Key"
+        style="@style/item_edittext_input"
+        android:id="@+id/edGGKey"
+        android:visibility="invisible"
+        ></EditText>
+
+    <Button
+
+        app:layout_constraintTop_toBottomOf="@id/edGGKey"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+
+        android:id="@+id/Init"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FF000000"
+        android:text="InitKey"
+        android:visibility="invisible"
+        />
+
+    <Button
+
+        app:layout_constraintTop_toBottomOf="@id/Init"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+
+        android:id="@+id/login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FF000000"
+        android:text="login"
+        />
+    <Button
+        app:layout_constraintTop_toBottomOf="@+id/login"
+        app:layout_constraintRight_toRightOf="@+id/login"
+        app:layout_constraintLeft_toLeftOf="@+id/login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="logout"
+        android:id="@+id/logout"
+        ></Button>
+    <LinearLayout
+        android:id="@+id/llPaymentInfo"
+        app:layout_constraintTop_toBottomOf="@+id/logout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Package id"
+            style="@style/item_edittext_input"
+            android:id="@+id/edPackage"
+            ></EditText>
+        <View
+            android:layout_width="10dp"
+            android:layout_height="1dp"/>
+        <EditText
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Server id"
+            style="@style/item_edittext_input"
+            android:id="@+id/edServer"
+            android:visibility="invisible"
+            ></EditText>
+    </LinearLayout>
+
+    <Button
+        app:layout_constraintTop_toBottomOf="@+id/llPaymentInfo"
+        android:id="@+id/btnPayment"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="payment request"
+        ></Button>
+</androidx.constraintlayout.widget.ConstraintLayout>
