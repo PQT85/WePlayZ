@@ -706,7 +706,7 @@ class MGActivity : AppCompatActivity() {
         }
         bindingFgRegister.mgFragmentLayoutRegisterTnc.mgFragmentLayoutTermCondition.text= Html.fromHtml(str)
         bindingFgRegister.mgFragmentLayoutRegisterTnc.mgFragmentLayoutTermCondition.movementMethod = LinkMovementMethod.getInstance()
-        //isCheckBox = false;
+        isCheckBox = false;
         //bindingFgRegister.mgFragmentLayoutRegisterTnc.mgFragmentLayoutTermConditionCheckbox.isEnabled = isCheckBox
         bindingFgRegister.mgFragmentLayoutRegisterTnc.mgFragmentLayoutTermConditionCheckbox.setOnCheckedChangeListener { buttonView, isChecked ->  isCheckBox=isChecked}
 
@@ -786,7 +786,7 @@ class MGActivity : AppCompatActivity() {
         bindingFgSync.mgFragmentLayoutSyncTnc.mgFragmentLayoutTermCondition.text= Html.fromHtml(str)
         bindingFgSync.mgFragmentLayoutSyncTnc.mgFragmentLayoutTermCondition.movementMethod = LinkMovementMethod.getInstance()
         //bindingFgSync.mgFragmentLayoutSyncTnc.mgFragmentLayoutTermConditionCheckbox.isEnabled = isCheckBox
-        bindingFgSync.mgFragmentLayoutSyncTnc.mgFragmentLayoutTermConditionCheckbox.setOnCheckedChangeListener { buttonView, isChecked ->  }
+        bindingFgSync.mgFragmentLayoutSyncTnc.mgFragmentLayoutTermConditionCheckbox.setOnCheckedChangeListener { buttonView, isChecked -> isCheckBox=isChecked }
 
         bindingFgSync.mgFragmentSyncIvEyeConfirm.setOnClickListener {
             isShowConfirmPassSync = !isShowConfirmPassSync
@@ -1072,6 +1072,12 @@ class MGActivity : AppCompatActivity() {
                 result = false
             }
         }
+        if(!isCheckBox && result)
+        {
+            result = false;
+            showToast(getString(R.string.mg_fragment_tnc_agreement))
+
+        }
         if(result)
         {
             TrackingManager.trackEventCount(context?._getString(R.string.mg_event_register_validate_success),json)
@@ -1253,6 +1259,12 @@ class MGActivity : AppCompatActivity() {
                 json.put("error",error)
                 result = false
             }
+        }
+        if(!isCheckBox && result)
+        {
+            result = false;
+            showToast(getString(R.string.mg_fragment_tnc_agreement))
+
         }
         if(result)
         {
