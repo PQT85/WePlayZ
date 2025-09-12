@@ -30,14 +30,24 @@
             android:layout_height="wrap_content"
 
             >
+
             <TextView
+                android:layout_marginBottom="@dimen/mg_spacing_edittext_input"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/text_title_large"
-
+                android:background="@drawable/mg_bottom_line"
                 android:text="@string/mg_fragment_sync_title_sync"
-                android:layout_marginBottom="@dimen/mg_padding_top_bottom_button"
+
                 />
+
+            <TextView
+                android:layout_marginTop="@dimen/mg_spacing_edittext_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mg_fragment_sync_remind_user"
+                android:textColor="@color/color_forget_pass_description"
+                ></TextView>
 <!--            <ImageView-->
 <!--                android:visibility="gone"-->
 <!--                android:layout_margin="4dp"-->
@@ -82,7 +92,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:src="@drawable/invisible"
-                    android:layout_width="40dp"
+                    android:layout_width="wrap_content"
                     android:layout_alignTop="@+id/mg_fragment_sync_ed_pass"
                     android:layout_alignBottom="@+id/mg_fragment_sync_ed_pass"
                     android:layout_height="match_parent"/>
@@ -112,7 +122,7 @@
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:src="@drawable/invisible"
-                        android:layout_width="40dp"
+                        android:layout_width="wrap_content"
                         android:padding="4dp"
                         android:id="@+id/mg_fragment_sync_iv_eye_confirm"
                         android:layout_alignTop="@+id/mg_fragment_sync_ed_Confirmpass"
@@ -249,6 +259,18 @@
 
                     android:hint="@string/mg_fragment_register_hint_address"/>
                 </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/mg_spacing_edittext_input"
+            >
+            <include layout="@layout/mg_fragment_layout_term_condition" android:id="@+id/mg_fragment_layout_sync_tnc"/>
+        </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
                 <TextView
                     android:background="@drawable/mg_bg_button_register_selector"
                     android:layout_marginTop="@dimen/mg_spacing_edittext_input"
@@ -257,8 +279,13 @@
                     android:textAllCaps="true"
                     android:text="@string/mg_fragment_sync_action_sync"
                     android:id="@+id/mg_fragment_sync_tv_sync"
+                    android:layout_weight="0.5"
+                    android:layout_marginRight="12dp"
+
                 />
+
                 <TextView
+                    android:layout_marginLeft="12dp"
                     android:background="@drawable/mg_bg_button_login_selector"
                     android:layout_marginTop="@dimen/mg_spacing_edittext_input"
                     style="@style/item_main_button"
@@ -266,7 +293,9 @@
                     android:textAllCaps="true"
                     android:text="@string/mg_text_skip_sync"
                     android:id="@+id/mg_fragment_sync_tv_skip"
+                    android:layout_weight="0.5"
                 />
+        </LinearLayout>
 <!--            <LinearLayout-->
 <!--                android:visibility="gone"-->
 <!--                android:layout_marginTop="@dimen/mg_spacing_edittext_input"-->

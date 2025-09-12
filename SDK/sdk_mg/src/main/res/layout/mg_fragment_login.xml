@@ -7,7 +7,10 @@
     android:background="@color/colorBackground"
 
     >
-    <include layout="@layout/mg_fragment_layout_back" android:id="@+id/mg_fragment_login_ll_back"/>
+
+    <include
+        android:id="@+id/mg_fragment_login_ll_back"
+        layout="@layout/mg_fragment_layout_back" />
     <androidx.core.widget.NestedScrollView
         android:paddingLeft="@dimen/mg_padding_left_right_content"
         android:paddingRight="@dimen/mg_padding_left_right_content"
@@ -30,14 +33,30 @@
             android:layout_height="wrap_content"
 
             >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginBottom="@dimen/mg_spacing_edittext_input"
+            >
+
+
+            <!--View android:layout_width="wrap_content"
+                android:layout_height="2dp"
+                android:background="#ff00ff"
+
+                /-->
             <TextView
+                style="@style/text_title_large"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/text_title_large"
                 android:layout_gravity="center"
-                android:text="@string/mg_main_account_text_title_main"
-                android:layout_marginBottom="@dimen/mg_padding_top_bottom_button"
-                />
+                android:background="@drawable/mg_bottom_line"
+                android:text="@string/mg_main_account_text_title_main" />
+
+
+        </LinearLayout>
 <!--            <LinearLayout-->
 <!--                android:visibility="gone"-->
 <!--                android:layout_gravity="center"-->
@@ -65,17 +84,29 @@
 <!--&lt;!&ndash;                    android:layout_height="@dimen/migamesdk_height_logo_gg"/>&ndash;&gt;-->
 <!--            </LinearLayout>-->
 
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/mg_spacing_edittext_input"
+                >
         <EditText
             android:maxLength="32"
-            android:layout_marginTop="@dimen/mg_spacing_edittext_input"
+
             android:paddingRight="50dp"
             style="@style/item_edittext_input"
             android:id="@+id/mg_fragment_login_ed_account"
             android:drawableLeft="@drawable/user"
             android:hint="@string/mg_fragment_login_hint_acc"
 
-
             />
+                <ImageView android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/asterisk"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:paddingRight="5dp"
+                    />
+            </RelativeLayout>
         <RelativeLayout
             android:id="@+id/el_password"
             android:layout_marginTop="@dimen/mg_spacing_edittext_input"
@@ -93,13 +124,25 @@
                 android:hint="@string/mg_fragment_login_hint_pass"
                 android:inputType="textPassword"
                 />
+            <ImageView android:layout_alignParentRight="true"
+                android:layout_alignTop="@id/mg_fragment_login_ed_pass"
+                android:layout_alignBottom="@id/mg_fragment_login_ed_pass"
+                android:src="@drawable/asterisk"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:id="@+id/mg_fragment_login_ed_pass_asterisk"
+                android:paddingRight="5dp"
+                />
             <ImageView
-                android:layout_alignParentRight="true"
+
                 android:layout_centerVertical="true"
                 android:src="@drawable/invisible"
-                android:layout_width="40dp"
+                android:layout_width="wrap_content"
                 android:id="@+id/mg_fragment_login_iv_eye"
-                android:padding="4dp"
+                android:padding="5dp"
+                android:layout_toLeftOf="@id/mg_fragment_login_ed_pass_asterisk"
                 android:scaleType="fitCenter"
                 android:layout_alignTop="@+id/mg_fragment_login_ed_pass"
                 android:layout_alignBottom="@+id/mg_fragment_login_ed_pass"
@@ -162,6 +205,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
             <CheckBox
+                style="@style/normal_text"
                 android:id="@+id/mg_fragment_login_ck_save_pass"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -172,14 +216,16 @@
                 android:paddingTop="4dp"
                 android:paddingBottom="4dp"
                 android:buttonTint="@color/colorRegister"
+                android:clickable="true"
                 android:checked="true"
-                android:textStyle="bold"
                 android:textColor="@color/colorRegister"
+                android:button="@drawable/mg_button_checkbox"
                 />
             <View
                 android:layout_width="6dp"
                 android:layout_height="1dp"/>
             <TextView
+                style="@style/normal_text"
                 android:visibility="visible"
                 android:id="@+id/mg_fragment_login_tv_forget_pass"
                 android:layout_width="wrap_content"
@@ -191,7 +237,7 @@
                 android:gravity="right"
                 android:paddingTop="4dp"
                 android:paddingBottom="4dp"
-                android:textStyle="bold"
+
                 android:textColor="@color/colorRegister"
                 />
         </LinearLayout>
@@ -200,18 +246,29 @@
 <!--                android:layout_width="wrap_content"-->
 <!--                android:layout_height="wrap_content"-->
 <!--                >-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            >
                 <TextView
-                    android:layout_width="@dimen/mg_fragment_login_width_button"
-                    android:layout_marginTop="@dimen/mg_spacing_edittext_input"
+                    android:layout_width="0dp"
+
                     style="@style/item_main_button"
                     android:background="@drawable/mg_bg_button_login_selector"
                     android:text="@string/mg_main_account_text_title_main"
                     android:id="@+id/mg_fragment_login_tv_login"
-                    android:layout_weight="1"
+                    android:layout_weight="0.4"
                     android:textAllCaps="true"
                     android:textStyle="bold"
                     android:textColor="@color/colorBackground"
+
                     />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.1"
+                />
 <!--                <View-->
 
 <!--                    android:layout_width="20dp"-->
@@ -250,17 +307,127 @@
 <!--                />-->
 <!--        </LinearLayout>-->
             <TextView
-                android:layout_marginTop="@dimen/mg_spacing_button_main"
-                android:layout_width="@dimen/mg_fragment_login_width_button"
+
+
+                android:layout_width="0dp"
                 android:textColor="@color/colorBackground"
                 android:textStyle="bold"
                 android:textAllCaps="true"
-                android:layout_weight="1"
+                android:layout_weight="0.4"
                 style="@style/item_main_button"
                 android:background="@drawable/mg_bg_button_register_selector"
                 android:text="@string/mg_fragment_login_text_register"
                 android:id="@+id/mg_fragment_login_tv_register"
                 />
+
+
+        </LinearLayout>
+            <LinearLayout
+                android:id="@+id/mg_main_account_ll_qp"
+                android:layout_marginTop="@dimen/mg_spacing_edittext_input"
+                style="@style/item_main_button"
+                android:orientation="horizontal"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:src="@drawable/cn"
+                    android:layout_width="34dp"
+                    android:layout_height="@dimen/mg_size_icon_button"/>
+                <View
+                    android:layout_width="5dp"
+                    android:layout_height="1dp"/>
+                <TextView
+                    android:textColor="@color/colorBackground"
+                    style="@style/item_text_menu"
+                    android:id="@+id/mg_main_account_tv_qp"
+                    android:text="@string/mg_main_account_text_button_qp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                >
+                <View android:layout_height="2dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:background="#FF00FF00"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hoặc"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    style="@style/normal_text"
+                    />
+                <View android:layout_height="2dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:background="#FF00FF00"
+                    />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/mg_spacing_edittext_input"
+                >
+                <LinearLayout
+                    android:id="@+id/mg_main_account_ll_tiktok"
+
+                    android:paddingRight="20dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:src="@drawable/mg_button_titok"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:id="@+id/mg_main_account_ll_tiktok_icon"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/mg_main_account_ll_fb"
+
+
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    >
+                    <ImageView
+                        android:src="@drawable/mg_button_fb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:id="@+id/mg_main_account_ll_fb_icon"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/mg_main_account_ll_gg"
+
+                    android:paddingLeft="20sp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:src="@drawable/mg_button_gg"
+                        android:layout_width="wrap_content"
+                        android:clickable="true"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/mg_main_account_ll_gg_icon"
+                        />
+                </LinearLayout>
+
+
+                </LinearLayout>
 <!--        <LinearLayout-->
 <!--            android:visibility="gone"-->
 <!--            android:layout_marginTop="5dp"-->

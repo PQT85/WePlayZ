@@ -64,8 +64,12 @@
             android:layout_centerInParent="true"
             />
 
-        <include layout="@layout/mg_fragment_forget_pass" android:id="@+id/activity_mg_layout_forget_pass" android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:layout_centerInParent="true" android:visibility="gone"
+        <include layout="@layout/mg_fragment_forget_pass" android:id="@+id/activity_mg_layout_forget_pass" android:layout_width="match_parent" android:layout_height="match_parent"
+             android:visibility="gone"
+
+            android:layout_alignParentTop="true"
+
+
             />
     </RelativeLayout>
 

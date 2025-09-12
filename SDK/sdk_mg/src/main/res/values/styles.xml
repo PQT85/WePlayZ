@@ -8,7 +8,9 @@
         <item name="android:background">@color/black_overlay</item>
     </style>
 
-
+    <style name="style_normal_text" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">@dimen/text_size_normal</item>
+    </style>
     <style name="StyleTranslucentActivity" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>
@@ -18,6 +20,7 @@
         <item name="android:windowIsFloating">false</item>
         <item name="android:backgroundDimEnabled">false</item>
         <item name="android:windowFullscreen">true</item>
+        <item name="android:textViewStyle">@style/style_normal_text</item>
     </style>
 
 <!--    <style name="item_edittext_normal">-->
@@ -60,12 +63,32 @@
 <!--        <item name="android:textSize">14sp</item>-->
 <!--    </style>-->
 
+    <style name="normal_text">
+        <item name="android:textSize">@dimen/text_size_normal</item>
+    </style>
+
+    <style name="under_line_normal">
+        <item name="android:layout_height"> 2dp</item>
+        <item name="android:layout_width" > match_parent</item>
+        <item name="android:background">@color/colorUnderlineTitle</item>
+        <item name="android:layout_marginTop">-1dp</item>
+        <item name="android:reparentWithOverlay">true</item>
+    </style>
+    <style name="under_line_title">
+        <item name="android:layout_height"> 4dp</item>
+        <item name="android:layout_width" > wrap_content</item>
+        <item name="android:background">@color/colorUnderlineTitle</item>
+        <item name="android:layout_marginTop">-7dp</item>
+        <item name="android:reparentWithOverlay">true</item>
+    </style>
     <style name="text_title_large">
         <item name="android:textColor">@color/colorTitle</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textStyle">bold</item>
+
         <item name="android:textSize">@dimen/mg_size_title_large</item>
+
     </style>
 
     <style name="text_title_medium">
@@ -84,25 +107,34 @@
     </style>
 
     <style name="item_text_menu">
-        <item name="android:textSize">15sp</item>
+        <item name="android:textSize">12.5sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:gravity">center</item>
+    </style>
+
+    <style name="style_normal_font_general" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize" >12.5sp </item>>
     </style>
     <style name="item_main_button">
 
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@drawable/mg_bg_button_main_selector</item>
-        <item name="android:paddingLeft">@dimen/padding_left_right_button</item>
-        <item name="android:paddingRight">@dimen/padding_left_right_button</item>
+        <!--item name="android:paddingLeft">@dimen/padding_left_right_button</item>
+        <item name="android:paddingRight">@dimen/padding_left_right_button</item-->
         <item name="android:maxLines">1</item>
         <item name="android:singleLine">true</item>
         <item name="android:paddingTop">@dimen/mg_padding_top_bottom_button</item>
         <item name="android:paddingBottom">@dimen/mg_padding_top_bottom_button</item>
-        <item name="android:textSize">15sp</item>
+        <item name="android:textSize">13.5sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:gravity">center</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
 
+    </style>
+    <style name="style_font_text_normal">
+        <item name="android:textSize">@dimen/text_size_normal</item>
     </style>
     <style name="item_edittext_input">
         <item name="android:layout_width">match_parent</item>
@@ -114,7 +146,7 @@
         <item name="android:singleLine">true</item>
         <item name="android:paddingTop">@dimen/mg_padding_top_bottom_input</item>
         <item name="android:paddingBottom">@dimen/mg_padding_top_bottom_input</item>
-        <item name="android:textSize">15sp</item>
+        <item name="android:textSize">@dimen/text_size_normal</item>
         <item name="android:textColor">@color/colorTitle</item>
         <item name="android:textColorHint">@color/black_overlay</item>
         <item name="android:left">10dp</item>

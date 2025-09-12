@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     android:background="@color/colorBackground"
 
     >
@@ -27,14 +28,19 @@
             android:layout_height="wrap_content"
 
             >
+
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/text_title_large"
-
                 android:text="@string/mg_fragment_register_text_register"
-                android:layout_marginBottom="@dimen/mg_padding_top_bottom_button"
+                android:background="@drawable/mg_bottom_line"
                 />
+                <!--View style="@style/under_line_title"
+
+                    ></View-->
+
 <!--            <ImageView-->
 <!--                android:visibility="gone"-->
 <!--                android:layout_margin="4dp"-->
@@ -45,16 +51,38 @@
 <!--                android:layout_gravity="center"-->
 <!--                android:id="@+id/mg_fragment_register_iv_logo"-->
 <!--                />-->
-            <EditText
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/mg_spacing_edittext_input"
-                android:paddingRight="50dp"
-                style="@style/item_edittext_input"
-                android:id="@+id/mg_fragment_register_ed_account"
-                android:drawableLeft="@drawable/user"
-                android:hint="@string/mg_fragment_register_hint_acc"
+                >
 
-                android:drawablePadding="5dp"
-                />
+                <EditText
+
+                    android:paddingRight="50dp"
+                    android:id="@+id/mg_fragment_register_ed_account"
+                    style="@style/item_edittext_input"
+                    android:drawableLeft="@drawable/user"
+                    android:drawablePadding="5dp"
+                    android:hint="@string/mg_fragment_register_hint_acc" />
+                <ImageView android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/asterisk"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:paddingRight="5dp"
+                    />
+            </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mg_fragment_register_acc_constraint"
+                android:layout_gravity="left"
+                style="@style/style_font_text_normal"
+                android:layout_marginTop="@dimen/mg_spacing_edittext_input"
+                >
+
+            </TextView>
             <RelativeLayout
                 android:id="@+id/mg_fragment_register_el_password"
                 android:layout_marginTop="@dimen/mg_spacing_edittext_input"
@@ -64,26 +92,52 @@
                 >
 
                 <EditText
-                    style="@style/item_edittext_input"
-                    android:paddingRight="50dp"
-                    android:drawableLeft="@drawable/lock1"
                     android:id="@+id/mg_fragment_register_ed_pass"
+
+                    style="@style/item_edittext_input"
+                    android:drawableLeft="@drawable/lock1"
+                    android:drawablePadding="5dp"
                     android:hint="@string/mg_fragment_register_hint_pass"
                     android:inputType="textPassword"
-                    android:drawablePadding="5dp"
+                    android:paddingRight="50dp"
+
                     />
-                <ImageView
-                    android:padding="4dp"
-                    android:id="@+id/mg_fragment_register_iv_eye"
-                    android:scaleType="fitCenter"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/invisible"
-                    android:layout_width="40dp"
+                <ImageView android:layout_alignParentRight="true"
                     android:layout_alignTop="@+id/mg_fragment_register_ed_pass"
                     android:layout_alignBottom="@+id/mg_fragment_register_ed_pass"
-                    android:layout_height="match_parent"/>
+                    android:src="@drawable/asterisk"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:id="@+id/mg_fragment_register_ed_pass_asterisk"
+                    android:paddingRight="5dp"
+                    />
+
+                <ImageView
+
+
+                    android:id="@+id/mg_fragment_register_iv_eye"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+
+
+                    android:layout_alignTop="@+id/mg_fragment_register_ed_pass"
+
+                    android:layout_alignBottom="@+id/mg_fragment_register_ed_pass"
+                    android:layout_toLeftOf="@+id/mg_fragment_register_ed_pass_asterisk"
+                    android:paddingRight="5dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/invisible" />
+
             </RelativeLayout>
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:text="@string/mg_fragment_register_pass_constraint"
+                style="@style/style_font_text_normal"
+                android:layout_marginTop="@dimen/mg_spacing_edittext_input"
+                />
             <RelativeLayout
                     android:id="@+id/mg_fragment_register_el_confirmPassword"
                     android:layout_marginTop="@dimen/mg_spacing_edittext_input"
@@ -104,13 +158,24 @@
                         android:inputType="textPassword"
                         android:drawablePadding="5dp"
                         />
+                <ImageView android:layout_alignParentRight="true"
+                    android:layout_alignTop="@+id/mg_fragment_register_ed_Confirmpass"
+                    android:layout_alignBottom="@+id/mg_fragment_register_ed_Confirmpass"
+                    android:src="@drawable/asterisk"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:id="@+id/mg_fragment_register_ed_confirmpass_asterisk"
+                    android:paddingRight="5dp"
+                    />
                     <ImageView
                         android:scaleType="fitCenter"
-                        android:layout_alignParentRight="true"
+                       android:layout_toLeftOf="@id/mg_fragment_register_ed_confirmpass_asterisk"
                         android:layout_centerVertical="true"
                         android:src="@drawable/invisible"
-                        android:layout_width="40dp"
-                        android:padding="4dp"
+                        android:layout_width="wrap_content"
+                        android:paddingRight="5dp"
                         android:id="@+id/mg_fragment_register_iv_eye_confirm"
                         android:layout_alignTop="@+id/mg_fragment_register_ed_Confirmpass"
                         android:layout_alignBottom="@+id/mg_fragment_register_ed_Confirmpass"
@@ -246,14 +311,27 @@
 
                     android:hint="@string/mg_fragment_register_hint_address"/>
                 </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/mg_spacing_edittext_input"
+            >
+            <include layout="@layout/mg_fragment_layout_term_condition" android:id="@+id/mg_fragment_layout_register_tnc"
+
+                />
+        </LinearLayout>
                 <TextView
-                    android:background="@drawable/mg_bg_button_register_selector"
+                    android:background="@drawable/mg_bg_button_login_selector"
                     android:layout_marginTop="@dimen/mg_spacing_edittext_input"
                     style="@style/item_main_button"
                     android:textColor="@color/colorBackground"
                     android:textAllCaps="true"
                     android:text="@string/mg_fragment_register_text_register"
                     android:id="@+id/mg_fragment_register_tv_register"
+                    android:layout_width="wrap_content"
+                    android:paddingRight="@dimen/mg_padding_button"
+                    android:paddingLeft="@dimen/mg_padding_button"
+
                 />
 <!--            <LinearLayout-->
 <!--                android:visibility="gone"-->

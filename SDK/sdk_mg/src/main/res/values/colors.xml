@@ -1,19 +1,22 @@
 <resources>
 
     <color name="black_overlay">#66000000</color>
-
+    <color name="login_text_forget_pass">#E9DD91</color>
+    <color name="register_text_forget_pass">#46474C</color>
 
     <color name="colorMgPrimary">#029dff</color>
     <color name="colorMgPrimaryDark">#024ce0</color>
     <color name="colorMgSdkAccent">#255dfa</color>
+    <color name="colorMgSdkRegisterButton">#CA1615</color>
 
-
-    <color name="colorTitle">@color/colorMgSdkAccent</color>
+    <color name="color_forget_pass_description">#B3212B</color>
+    <color name="colorTitle">#FF000000</color>
     <color name="colorMainButtonSelected">#77255dfa</color>
 
+    <color name="colorUnderlineTitle">#C61712</color>
 
-    <color name="colorBgInput">#f2f2f2</color>
-
+    <color name="colorBgInput">#f4f5f7</color>
+    <color name="colorBGQuickPlay">#F5D13D</color>
     <color name="colorBackground">#ffffff</color>
     <color name="colorRegister">#3e495a</color>
     <color name="colorPress">#996600</color>

@@ -4,7 +4,7 @@
 
 
     <string name="mg_main_account_text_title_main">ĐĂNG NHẬP</string>
-
+    <string name="mg_forget_pass_title">QUÊN MẬT KHẨU</string>
     <!--string name="facebook_app_id">202497911742167</string-->
     <!--string name="facebook_app_id">347050497239570</string-->
 
@@ -28,11 +28,16 @@
     <string name="mg_main_account_text_button_migame">MIGAME ID</string>
     <string name="mg_main_account_text_button_fb">Đăng nhập Facebook</string>
     <string name="mg_main_account_text_button_gg">Đăng nhập Google</string>
-    <string name="mg_main_account_text_button_qp">Chơi ngay</string>
+    <string name="mg_main_account_text_button_qp">CHƠI NGAY</string>
 	<string name="mg_text_error_banner_config">Chưa đọc được Banner ở config.</string>
     <string name="mg_text_error_get_banner">Tải quảng cáo lỗi.</string>
 
 
+    <string name="mg_fragment_term_condition"><![CDATA[
+    Tôi đồng ý với <font color="#000086"> <a href="_URL_" style="color:red";>Điều khoản và chính sách dịch vụ </font></a>
+]]></string>
+    <string name="mg_fragment_register_acc_constraint">Tên đăng đăng nhập dài 6 - 32 ký tự Thường và Số</string>
+    <string name="mg_fragment_register_pass_constraint">Mật khẩu dài 6 - 32 ký tự,1 chữ cái (A-Za-z),1 số (0,9)</string>
     <string name="mg_fragment_register_hint_acc">Tên tài khoản(*)</string>
     <string name="mg_fragment_register_hint_pass">Nhập mật khẩu(*)</string>
     <string name="mg_fragment_register_hint_pass_again">Nhập lại mật khẩu(*)</string>
@@ -51,9 +56,9 @@
     <string name="mg_fragment_register_text_register">ĐĂNG KÝ</string>
     <string name="mg_fragment_sync_title_sync">ĐỒNG BỘ TÀI KHOẢN</string>
     <string name="mg_fragment_sync_action_sync">ĐỒNG BỘ</string>
-    <string name="mg_fragment_login_text_register">ĐĂNG KÝ MỚI</string>
+    <string name="mg_fragment_login_text_register">ĐĂNG KÝ</string>
     <string name="mg_fragment_register_text_policy">Chính sách tài khoản!</string>
-
+    <string name="mg_fragment_sync_remind_user">Chúng tôi khuyến cáo bạn nên đồng bộ tài khoản chơi nhanh thông qua Tạo Tài Khoản mới để tránh mất dữ liệu khi cài lại ứng dụng</string>
 
 
     <string name="mg_fragment_login_hint_acc">Tên tài khoản(*)</string>
@@ -65,10 +70,10 @@
     <string name="mg_text_no_network">Thiết bị chưa có kết nội mạng!</string>
     <string name="mg_text_unknown_error">Có lỗi xảy ra!</string>
     <string name="mg_text_message_title">Thông báo!</string>
-    <string name="mg_text_account_or_email">Vui lòng nhập tên tài khoản / email để lấy mật khẩu.</string>
+    <string name="mg_text_account_or_email">Vui lòng nhập tên tài khoản / email đã đăng ký để lấy lại mật khẩu.</string>
     <string name="mg_text_hint_account_or_email">Tài khoản/email</string>
     <string name="mg_text_cancel">Huỷ</string>
-    <string name="mg_text_confirm">Xác nhận</string>
+    <string name="mg_text_confirm">XÁC NHẬN</string>
 
     <string name="mg_text_skip_sync">Bỏ qua</string>
 
@@ -80,7 +85,7 @@
     <string name="mg_text_fragment_login_hint_captcha">Xác nhận:</string>
 
     <string name="mg_text_forget_pass_login">Đăng nhập</string>
-    <string name="mg_text_forget_pass_register">Đăng ký</string>
+    <string name="mg_text_forget_pass_register">Chưa có tài khoản?</string>
     <string name="mg_text_forget_pass_email_required">Tài khoản hoặc email là bắt buộc</string>
 
 

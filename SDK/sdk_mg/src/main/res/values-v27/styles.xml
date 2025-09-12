@@ -16,6 +16,7 @@
         <item name="android:windowIsFloating">false</item>
         <item name="android:backgroundDimEnabled">false</item>
         <item name="android:windowFullscreen">true</item>
+        <item name="android:textViewStyle">@style/style_normal_text</item>
     </style>
 
 

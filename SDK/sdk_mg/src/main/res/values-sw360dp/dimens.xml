@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="padding_left_right_input">8dp</dimen>
+    <!--dimen name="padding_left_right_input">8dp</dimen-->
     <dimen name="padding_top_bottom_input">14dp</dimen>
     <dimen name="mg_height_logo_gg">28dp</dimen>
-    <dimen name="padding_left_right_input_2">12dp</dimen>
+    <!--dimen name="padding_left_right_input_2">12dp</dimen-->
 
 
     <dimen name="mg_activity_horizontal_margin">16dp</dimen>
@@ -19,14 +19,14 @@
     <dimen name="mg_radius_edittext">16dp</dimen>
     <dimen name="mg_radius_button">22dp</dimen>
     <dimen name="mg_radius_bg">22dp</dimen>
-    <dimen name="mg_size_icon_button">34dp</dimen>
+    <!--dimen name="mg_size_icon_button">34dp</dimen-->
 
-    <dimen name="mg_padding_left_right_content">24dp</dimen>
+    <!--dimen name="mg_padding_left_right_content">24dp</dimen-->
 
     <dimen name="mg_padding_left_right_master_content">8dp</dimen>
     <dimen name="mg_padding_top_bottom_master_content">8dp</dimen>
     <dimen name="padding_left_right_button">26dp</dimen>
-    <dimen name="mg_fragment_login_width_button">180dp</dimen>
+    <!--dimen name="mg_fragment_login_width_button">140dp</dimen-->
 
 
 
@@ -40,9 +40,9 @@
 
 
     <dimen name="mg_height_button">36dp</dimen>
-    <dimen name="mg_padding_top_bottom_input">5dp</dimen>
+    <dimen name="mg_padding_top_bottom_input">10dp</dimen>
     <dimen name="size_bg">330dp</dimen>
-    <dimen name="mg_spacing_edittext_input">13dp</dimen>
+    <dimen name="mg_spacing_edittext_input">10dp</dimen>
     <dimen name="mg_spacing_button_main">14dp</dimen>
     <dimen name="mg_padding_top_bottom_button">7dp</dimen>
 <!--    <dimen name="mg_percent_width">0.85</dimen>-->

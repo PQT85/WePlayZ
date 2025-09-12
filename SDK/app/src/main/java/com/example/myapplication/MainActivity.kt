@@ -2,7 +2,9 @@ package com.example.myapplication
 
 import android.accounts.AccountManager
 import android.os.Bundle
+import android.text.Html
 import android.text.TextUtils
+import android.text.method.LinkMovementMethod
 import android.util.Log
 import android.view.View.*
 import android.view.WindowManager
@@ -53,7 +55,7 @@ class MainActivity : AppCompatActivity() {
         SDKManager.requestPermissionForPN(this);
       //  setContentView(R.layout.activity_main)
         setContentView(binding.root)
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,WindowManager.LayoutParams.FLAG_SECURE)
+      //  getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,WindowManager.LayoutParams.FLAG_SECURE)
      //   SDKManager.initSDK(application,"cvtq09754b9218cc9f9d6e9192be85f514cdK","cvtq5f4feb3e6070a615c7ef49f801823d85S","682249380643-bch2l5lo88jj1st1evb2tnf5mfs5bha2.apps.googleusercontent.com",null);
         SDKManager.initSDK(application,"httde34a1fd5977bfe2141087928d420d277AK","httd65bb642c260b025785001992d9744fffSK","62115860010-rs5487dshpt850k60mvet9nojmkocv0d.apps.googleusercontent.com",null,"123");
         //SDKManager.setIsDebug(true)
@@ -66,6 +68,11 @@ class MainActivity : AppCompatActivity() {
             //val s : String
             //s.isNullorBlank();
         }
+
+
+
+      //  binding.testHyperlink.text = Html.fromHtml(getString(R.string.mg_fragment_term_condition));//"Click <a href='google.com'>Google</a>");
+       // binding.testHyperlink.movementMethod = LinkMovementMethod.getInstance();
 
         SDKManager.requestPermissionForPN(this);
         val authen = object : SDKManager.AuthUserInterface

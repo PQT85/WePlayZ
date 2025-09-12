@@ -13,10 +13,13 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.text.Editable
+import android.text.Html
 import android.text.InputType
 import android.text.TextUtils
 import android.text.TextWatcher
 import android.text.method.HideReturnsTransformationMethod
+import android.text.method.LinkMovementMethod
+import android.text.method.MovementMethod
 import android.text.method.PasswordTransformationMethod
 import android.util.Log
 import android.view.KeyEvent
@@ -68,6 +71,7 @@ import com.facebook.*
 import vn.mgjsc.sdk.databinding.ActivityMgBinding
 import vn.mgjsc.sdk.databinding.MgFragmentForgetPassBinding
 import vn.mgjsc.sdk.databinding.MgFragmentLayoutBackBinding
+import vn.mgjsc.sdk.databinding.MgFragmentLayoutTermConditionBinding
 import vn.mgjsc.sdk.databinding.MgFragmentLoginBinding
 import vn.mgjsc.sdk.databinding.MgFragmentRegisterBinding
 import vn.mgjsc.sdk.databinding.MgFragmentSyncAccountBinding
@@ -82,6 +86,7 @@ class MGActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMgBinding;
     private lateinit var bindingFgLogin : MgFragmentLoginBinding;
     private lateinit var bindingFgRegister : MgFragmentRegisterBinding;
+   // private lateinit var bindingFgTnC : MgFragmentLayoutTermConditionBinding;
     private lateinit var bindingFgForgetPass : MgFragmentForgetPassBinding
     private lateinit var bindingFgSync : MgFragmentSyncAccountBinding
     //private lateinit var bindingFgBack : MgFragmentLayoutBackBinding
@@ -130,6 +135,7 @@ class MGActivity : AppCompatActivity() {
         bindingFgLogin = binding.activityMgLayoutLogin
         bindingFgForgetPass = binding.activityMgLayoutForgetPass
 
+
         initSDK()
         // activate immersive mode
 //        activateImmersiveMode ImmersiveControl.(this);
@@ -142,6 +148,8 @@ class MGActivity : AppCompatActivity() {
                 //Log.d("pqt", "debug enabled")
             }
         }
+        Log.d("PQT Debug", "----------" + resources.getString(R.dimen.size_bg));
+
       //  if(!SDKManager.isAdjustValid)
         //    showToast("<!!!!> Adjust SDK isn't initialized properly. <!!!!> ")
 
@@ -487,6 +495,7 @@ class MGActivity : AppCompatActivity() {
     var isShowPassSync : Boolean = false
     var isShowConfirmPassSync : Boolean = false
 
+    var isCheckBox: Boolean = false;
 
     private fun isShowRegisterScreen(): Boolean
     {
@@ -528,9 +537,9 @@ class MGActivity : AppCompatActivity() {
     private fun registerForgetPasswordScreen()
     {
 
-        bindingFgForgetPass.mgFragmentForgetPassTvLogin.paint?.isUnderlineText = true
+        //bindingFgForgetPass.mgFragmentForgetPassTvLogin.paint?.isUnderlineText = true
 
-        bindingFgForgetPass.mgFragmentForgetPassTvRegister.paint?.isUnderlineText = true
+        //bindingFgForgetPass.mgFragmentForgetPassTvRegister.paint?.isUnderlineText = true
         bindingFgForgetPass.mgFragmentForgetPassLlBack.root.setOnClickListener {
             onBackPressed()
         }
@@ -553,6 +562,7 @@ class MGActivity : AppCompatActivity() {
         isSavePass = bindingFgLogin.mgFragmentLoginCkSavePass.isChecked
         bindingFgLogin.mgFragmentLoginCkSavePass.setOnCheckedChangeListener{
                 buttonView, isChecked -> isSavePass = isChecked
+
         }
 
         bindingFgLogin.mgFragmentLoginLlBack.root.findViewById<ImageView>(R.id.mg_fragment_layout_back_iv_back).setOnClickListener {
@@ -567,8 +577,10 @@ class MGActivity : AppCompatActivity() {
             if(stepDebug>12)
                 SDKManager.setIsDebug(false)
         }
-
-
+        bindingFgLogin.mgMainAccountLlQp.setOnClickListener {nextState(STATE_LOGIN_QP)
+        }
+        bindingFgLogin.mgMainAccountLlFbIcon.setOnClickListener { nextState(STATE_LOGIN_FB) }
+        bindingFgLogin.mgMainAccountLlGgIcon.setOnClickListener { nextState(STATE_LOGIN_GG) }
 
         bindingFgLogin.mgFragmentLoginTvLogin.setOnClickListener {
             if(validateLogin())
@@ -679,11 +691,26 @@ class MGActivity : AppCompatActivity() {
                 SDKManager.setIsDebug(false)
         }
 
+        //bindingFgRegister.
         bindingFgRegister.mgFragmentRegisterTvRegister.setOnClickListener {
             if (validateRegister())
                 this.nextState(STATE_REGISTER)
             TrackingManager.trackEventCount(context?._getString(R.string.mg_event_click_register),null)
         }
+
+        var str = getString(R.string.mg_fragment_term_condition)
+        SDKManager.baseConfigModel?.let {
+
+            str = str.replace(Regex("_URL_"),SDKManager.baseConfigModel!!.urlPolicy)
+
+        }
+        bindingFgRegister.mgFragmentLayoutRegisterTnc.mgFragmentLayoutTermCondition.text= Html.fromHtml(str)
+        bindingFgRegister.mgFragmentLayoutRegisterTnc.mgFragmentLayoutTermCondition.movementMethod = LinkMovementMethod.getInstance()
+        //isCheckBox = false;
+        //bindingFgRegister.mgFragmentLayoutRegisterTnc.mgFragmentLayoutTermConditionCheckbox.isEnabled = isCheckBox
+        bindingFgRegister.mgFragmentLayoutRegisterTnc.mgFragmentLayoutTermConditionCheckbox.setOnCheckedChangeListener { buttonView, isChecked ->  isCheckBox=isChecked}
+
+
 
         bindingFgRegister.mgFragmentRegisterIvEye.setOnClickListener {
             isShowPassRegister = !isShowPassRegister
@@ -748,6 +775,18 @@ class MGActivity : AppCompatActivity() {
             }
         }
 
+        isCheckBox = false;
+
+        var str = getString(R.string.mg_fragment_term_condition)
+        SDKManager.baseConfigModel?.let {
+
+            str = str.replace(Regex("_URL_"),SDKManager.baseConfigModel!!.urlPolicy)
+
+        }
+        bindingFgSync.mgFragmentLayoutSyncTnc.mgFragmentLayoutTermCondition.text= Html.fromHtml(str)
+        bindingFgSync.mgFragmentLayoutSyncTnc.mgFragmentLayoutTermCondition.movementMethod = LinkMovementMethod.getInstance()
+        //bindingFgSync.mgFragmentLayoutSyncTnc.mgFragmentLayoutTermConditionCheckbox.isEnabled = isCheckBox
+        bindingFgSync.mgFragmentLayoutSyncTnc.mgFragmentLayoutTermConditionCheckbox.setOnCheckedChangeListener { buttonView, isChecked ->  }
 
         bindingFgSync.mgFragmentSyncIvEyeConfirm.setOnClickListener {
             isShowConfirmPassSync = !isShowConfirmPassSync
@@ -1242,9 +1281,9 @@ class MGActivity : AppCompatActivity() {
         if(hideMainMenu) return;
 
         binding.activityMigameLlContainer.visibility = View.VISIBLE
-        binding.activityMgLayoutMainAccount.root.visibility = View.VISIBLE
+        binding.activityMgLayoutMainAccount.root.visibility = View.GONE
 
-        binding.activityMgLayoutLogin.root.visibility = View.GONE
+        binding.activityMgLayoutLogin.root.visibility = View.VISIBLE
         binding.activityMgLayoutRegister.root.visibility = View.GONE
 
         binding.activityMgLayoutForgetPass.root.visibility = View.GONE
@@ -1353,7 +1392,7 @@ class MGActivity : AppCompatActivity() {
     val STATE_LOGOUT = "LOGOUT"
     val STATE_PAYMENT = "PAYMENT"
     val STATE_PASS_RECOVERY = "PASS_RECOVERY"
-    var currentState = STATE_INIT
+    var currentState = STATE_LOGIN_MG//STATE_INIT
     var nextState = STATE_DONE
 
 
@@ -2805,7 +2844,7 @@ class MGActivity : AppCompatActivity() {
                 ) { config, e ->
                     hideLoading()
 
-                    currentState = STATE_INIT
+                    currentState = STATE_LOGIN_MG//STATE_INIT
                     if (config != null) {
                         currentState = STATE_DONE
                         SDKManager.baseConfigModel = config
