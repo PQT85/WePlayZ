@@ -7,7 +7,7 @@
 
     android:background="@android:color/transparent"
 
-    tools:context=".BannerMiGameActivity">
+    tools:context="vn.weplayz.sdk.BannerMiGameActivity">
     <RelativeLayout
 
         app:layout_constraintHeight_percent="0.9"
@@ -47,7 +47,7 @@
 <!--                android:layout_height="match_parent"/>-->
 
 
-<vn.mgjsc.sdk.views.LollipopFixedWebView
+<vn.weplayz.sdk.views.LollipopFixedWebView
                 android:id="@+id/activity_banner_migame_wv"
                 style="@style/Widget.AppCompat.ProgressBar"
                 android:visibility="gone"

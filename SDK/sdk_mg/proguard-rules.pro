@@ -24,11 +24,11 @@
 
 
 
--keep class vn.mgjsc.sdk.SDKManager$PaymentUserCallback, vn.mgjsc.sdk.SDKManager$AuthUserInterface {
+-keep class vn.weplayz.sdk.SDKManager$PaymentUserCallback, vn.weplayz.sdk.SDKManager$AuthUserInterface {
 <methods>;
 }
 
--keepclassmembers class vn.mgjsc.sdk.SDKManager {
+-keepclassmembers class vn.weplayz.sdk.SDKManager {
 
  public *** requestPermissionForPN(...);
  public *** login(...);
@@ -45,16 +45,16 @@
 
 }
 
--keep class vn.mgjsc.sdk.models.UserAccountModel, vn.mgjsc.sdk.models.PaymentDataGameModel{
+-keep class vn.weplayz.sdk.models.UserAccountModel, vn.weplayz.sdk.models.PaymentDataGameModel{
 <methods>;
 <fields>;
 }
 
--keep class vn.mgjsc.sdk.models.* {
+-keep class vn.weplayz.sdk.models.* {
 <methods>;
 <fields>;
 }
--keep class vn.mgjsc.sdk.utils.ImmersiveControl {
+-keep class vn.weplayz.sdk.utils.ImmersiveControl {
 <methods>;
 }
 -keepattributes *Annotation*

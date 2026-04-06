@@ -262,7 +262,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                 </RadioGroup>
-                <vn.mgjsc.sdk.views.EditViewClickDrawable
+                <vn.weplayz.sdk.views.EditViewClickDrawable
                     android:paddingRight="50dp"
                     android:layout_marginTop="@dimen/mg_spacing_edittext_input"
                     style="@style/item_edittext_input"
@@ -280,7 +280,7 @@
                     android:drawableLeft="@drawable/cmnd"
                     android:hint="@string/mg_fragment_register_hint_persional_id"/>
 
-                <vn.mgjsc.sdk.views.EditViewClickDrawable
+                <vn.weplayz.sdk.views.EditViewClickDrawable
                     android:paddingRight="50dp"
                     android:layout_marginTop="@dimen/mg_spacing_edittext_input"
                     style="@style/item_edittext_input"
