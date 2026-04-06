@@ -215,11 +215,13 @@
                 android:singleLine="false"
                 android:paddingTop="4dp"
                 android:paddingBottom="4dp"
-                android:buttonTint="@color/colorRegister"
-                android:clickable="true"
-                android:checked="true"
                 android:textColor="@color/colorRegister"
-                android:button="@drawable/mg_button_checkbox"
+                android:drawablePadding="4dp"
+
+                android:drawableLeft="@drawable/mg_button_checkbox"
+                android:checked="true"
+                android:button="@null"
+
                 />
             <View
                 android:layout_width="6dp"
@@ -335,7 +337,7 @@
                     android:layout_width="34dp"
                     android:layout_height="@dimen/mg_size_icon_button"/>
                 <View
-                    android:layout_width="5dp"
+                    android:layout_width="3dp"
                     android:layout_height="1dp"/>
                 <TextView
                     android:textColor="@color/colorBackground"
@@ -359,7 +361,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Hoặc"
+                    android:text="@string/mg_text_login_option_selection"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     style="@style/normal_text"
