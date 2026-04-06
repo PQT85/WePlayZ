@@ -61,8 +61,11 @@ public class Constants {
     public final static String ENVIROMENT = "production";
 
 //        var BASE_URL = "https://msdk.migame.vn/"
-    public final static String BASE_URL = "https://msdk.migame.vn/";
-    public final static String BASE_HTTP_URL = "https://msdk.migame.vn/";
+    //public final static String BASE_URL = "https://msdk.migame.vn/";
+    //public final static String BASE_HTTP_URL = "https://msdk.migame.vn/";
+
+    public final static String BASE_URL = "https://sdk.weplayz.vn";
+    public final static String BASE_HTTP_URL = "https://sdk.weplayz.vn";
 
 //    public final static String BASE_URL = "https://sdk.gamestudiovn.online/";
 //    public final static String BASE_HTTP_URL = "https://sdk.gamestudiovn.online/";
