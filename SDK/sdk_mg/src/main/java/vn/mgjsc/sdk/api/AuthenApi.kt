@@ -2,6 +2,7 @@ package vn.mgjsc.sdk.api
 
 
 
+import android.util.Log
 import com.google.gson.Gson
 import vn.mgjsc.sdk.models.UserAccountModel
 
@@ -107,6 +108,54 @@ class AuthenApi: BaseInteractor() {
             )
         }
 
+        fun getLoginTiktok(linkAPI: String?,
+                           clientKey:String?,
+                           clientSecret:String?,
+                           code:String?,
+                           codeVerifier:String?,
+                           redirectURL:String?,
+                           deviceID:String?,
+                            time:String?,
+                           sign:String?,
+        listener: (user: UserAccountModel?, e: Exception?) -> Unit)
+        {
+            submitSubTask(Runnable {
+                try {
+    //                Log.d("PQT Debug","-----------------query" + getDomainAPI()+ "/"+ linkAPI)
+                    val result = PostRequest("${getDomainAPI()}/${linkAPI}", "UTF-8")
+                        .addHeader("Content-Type", "application/x-www-form-urlencoded")
+                        .addField(SDKParams.PARAM_APP_KEY, SDKManager.getAPP_KEY())
+                        .addField(SDKParams.PARAM_TIKTOK_CLIENT_KEY,clientKey!!)
+                        .addField(SDKParams.PARAM_TIKTOK_SECRET_KEY,clientSecret!!)
+                        .addField(SDKParams.PARAM_TIKTOK_CODE,code!!)
+                        .addField(SDKParams.PARAM_TIKTOK_CODE_VERVIFIER,codeVerifier!!)
+                        .addField(SDKParams.PARAM_TIKTOK_URL_REDIRECT,redirectURL!!)
+                        .addField(SDKParams.PARAM_DEVICEID, deviceID!!)
+                        .addField(SDKParams.PARAM_CLIENTOS, Constants.CLIENT_OS)
+                        .addField(SDKParams.PARAM_TIME, time!!)
+                        .addField(SDKParams.PARAM_SIGN, sign!!)
+                        .addField(SDKParams.PARAM_ENVIROMENT,Constants.ENVIROMENT)
+                        .addField(SDKParams.PARAM_SDK_VERSION,Constants.VERSION_SDK)
+                        .addField(SDKParams.PARAM_PACKAGENAME, SDKManager.getPackageName())
+                        .addField(SDKParams.PARAM_CLIENT_IP, SDKParams.IPLOCAL)
+                        .addField(SDKParams.PARAM_MAC_ADDRESS, Constants.MAC_ADDRESS)
+                        .execute()
+        //            Log.d("PQT Debug","----------- " + result.toString() + "---" + "${getDomainAPI()}/${linkAPI}")
+                    mainThreadCallback(Runnable {
+                        listener.invoke(
+                            Gson().fromJson(
+                                JSONObject(result).getString("r"),
+                                UserAccountModel::class.java
+                            ), null
+                        )
+                    })
+                } catch (e: Exception) {
+         //           Log.d("PQT Debug","----------- exception " + e)
+                    val ee = BaseInteractor.proccessExceptionConnection(e)
+                    mainThreadCallback(Runnable { listener.invoke(null, ee) })
+                }
+            })
+        }
         fun getLoginFacebook(
             facebookID: String,
             facebookAccessToken: String,
