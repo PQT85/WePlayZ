@@ -91,10 +91,19 @@ public class SDKManager {
         private var SECRET_KEY = "animeheroe644ede84ec176e3924f3c020af7aa7cSK"
         @JvmStatic
         private var AFF_KEY = ""
-        @JvmStatic
-       // private var GG_KEY = "705765649152-s4vt0o5dhlclcoh9u7rjncsgi2pnpukf.apps.googleusercontent.com"
 
-//        private var GG_KEY = "577860542106-t3bgflo30dkmhks3hmialpasm7j2e38m.apps.googleusercontent.com"
+        @JvmStatic
+        private var TIKTOK_REDIRECT_URL = "https://nicasdk-2e394.web.app/"
+        //private var TIKTOK_REDIRECT_URL = "https://tiktokcallback/mg19/"
+        //private var TIKTOK_REDIRECT_URL = "weplayz19://tiktokcallback/"
+
+        @JvmStatic
+        private var TIKTOK_KEY = "sbaw895plmvn26rgjk"
+
+        @JvmStatic
+        private var TIKTOK_CLIENT_KEY = "123131"
+
+        @JvmStatic
         private var GG_KEY = "652476991377-0i3go1odbbbb5dhg40hgcq0kg51r97d3.apps.googleusercontent.com"
 
         @JvmStatic
@@ -133,6 +142,24 @@ public class SDKManager {
         fun getGG_KEY() : String
         {
             return GG_KEY
+        }
+
+        @JvmStatic
+        @Synchronized
+        fun getTIKTOK_REDIRECT_URL() :String
+        {
+            return TIKTOK_REDIRECT_URL;
+        }
+        @JvmStatic
+        @Synchronized
+        fun getTIKTOK_KEY():String {
+            return TIKTOK_KEY;
+        }
+
+        @JvmStatic
+        @Synchronized
+        fun getTIKTOK_CLIENT_KEY():String {
+            return TIKTOK_CLIENT_KEY;
         }
         @JvmStatic
         @Synchronized
