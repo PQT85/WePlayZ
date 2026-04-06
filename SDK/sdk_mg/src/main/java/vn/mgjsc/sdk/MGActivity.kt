@@ -8,6 +8,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -68,6 +69,10 @@ import java.util.*
 import kotlin.collections.ArrayList
 import com.facebook.AccessToken
 import com.facebook.*
+import com.tiktok.open.sdk.auth.AuthApi
+import com.tiktok.open.sdk.auth.AuthRequest
+import com.tiktok.open.sdk.auth.AuthResponse
+import com.tiktok.open.sdk.auth.utils.PKCEUtils
 import vn.mgjsc.sdk.databinding.ActivityMgBinding
 import vn.mgjsc.sdk.databinding.MgFragmentForgetPassBinding
 import vn.mgjsc.sdk.databinding.MgFragmentLayoutBackBinding
@@ -77,6 +82,8 @@ import vn.mgjsc.sdk.databinding.MgFragmentRegisterBinding
 import vn.mgjsc.sdk.databinding.MgFragmentSyncAccountBinding
 import vn.mgjsc.sdk.databinding.MgMainAccountBinding
 import vn.mgjsc.sdk.models.*
+import java.net.URL
+import java.net.URLEncoder
 
 class MGActivity : AppCompatActivity() {
 
@@ -91,6 +98,8 @@ class MGActivity : AppCompatActivity() {
     private lateinit var bindingFgSync : MgFragmentSyncAccountBinding
     //private lateinit var bindingFgBack : MgFragmentLayoutBackBinding
     private lateinit var bindingMainAccount : MgMainAccountBinding
+    private lateinit var authApi:AuthApi;
+
     open fun showLoading() {
         binding.activityMgPgLoading.visibility = View.VISIBLE
         if (mProgressDialog != null && mProgressDialog!!.isShowing) {
@@ -123,8 +132,10 @@ class MGActivity : AppCompatActivity() {
 
     }
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
 //        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         //setContentView(R.layout.activity_mg)
         binding = ActivityMgBinding.inflate(layoutInflater)
@@ -137,6 +148,7 @@ class MGActivity : AppCompatActivity() {
 
 
         initSDK()
+        handleTiktokAuthResponse(intent);
         // activate immersive mode
 //        activateImmersiveMode ImmersiveControl.(this);
 
@@ -148,7 +160,7 @@ class MGActivity : AppCompatActivity() {
                 //Log.d("pqt", "debug enabled")
             }
         }
-        Log.d("PQT Debug", "----------" + resources.getString(R.dimen.size_bg));
+    //    Log.d("PQT Debug", "----------" + resources.getString(R.dimen.size_bg));
 
       //  if(!SDKManager.isAdjustValid)
         //    showToast("<!!!!> Adjust SDK isn't initialized properly. <!!!!> ")
@@ -200,6 +212,8 @@ class MGActivity : AppCompatActivity() {
             if(isInit==true)
                 this.isInit = isInit
         }
+        handleTiktokAuthResponse(intent!!);
+
     }
     override fun onDestroy(){
         super.onDestroy()
@@ -245,6 +259,7 @@ class MGActivity : AppCompatActivity() {
         if(isInit || bindingMainAccount.mgMainAccountLlMigame==null)
             return
         isInit = true
+        authApi = AuthApi(this);
         hideMainMenu = false
         intent.putExtra("isInit",isInit);
         sharedPreferences = getSharedPreferences(SDKManager.PREFERENCE_ACCOUNT_MANAGER, Context.MODE_PRIVATE)
@@ -337,8 +352,14 @@ class MGActivity : AppCompatActivity() {
             binding.activityMigameLlContainer.visibility = View.VISIBLE
         }
     }
+
+    fun onClickLoginTiktok()
+    {
+        openTiktokLogin();
+    }
     private fun registerMainMenuScreen()
     {
+
 
 
         bindingMainAccount.mgMainAccountLlMigame.setOnClickListener {
@@ -581,6 +602,7 @@ class MGActivity : AppCompatActivity() {
         }
         bindingFgLogin.mgMainAccountLlFbIcon.setOnClickListener { nextState(STATE_LOGIN_FB) }
         bindingFgLogin.mgMainAccountLlGgIcon.setOnClickListener { nextState(STATE_LOGIN_GG) }
+        bindingFgLogin.mgMainAccountLlTiktokIcon.setOnClickListener{nextState(STATE_LOGIN_TIKTOK)}
 
         bindingFgLogin.mgFragmentLoginTvLogin.setOnClickListener {
             if(validateLogin())
@@ -698,13 +720,7 @@ class MGActivity : AppCompatActivity() {
             TrackingManager.trackEventCount(context?._getString(R.string.mg_event_click_register),null)
         }
 
-        var str = getString(R.string.mg_fragment_term_condition)
-        SDKManager.baseConfigModel?.let {
 
-            str = str.replace(Regex("_URL_"),SDKManager.baseConfigModel!!.urlPolicy)
-
-        }
-        bindingFgRegister.mgFragmentLayoutRegisterTnc.mgFragmentLayoutTermCondition.text= Html.fromHtml(str)
         bindingFgRegister.mgFragmentLayoutRegisterTnc.mgFragmentLayoutTermCondition.movementMethod = LinkMovementMethod.getInstance()
         isCheckBox = false;
         //bindingFgRegister.mgFragmentLayoutRegisterTnc.mgFragmentLayoutTermConditionCheckbox.isEnabled = isCheckBox
@@ -777,13 +793,16 @@ class MGActivity : AppCompatActivity() {
 
         isCheckBox = false;
 
-        var str = getString(R.string.mg_fragment_term_condition)
-        SDKManager.baseConfigModel?.let {
+       // var str = getString(R.string.mg_fragment_term_condition)
+       // SDKManager.baseConfigModel?.let {
 
-            str = str.replace(Regex("_URL_"),SDKManager.baseConfigModel!!.urlPolicy)
+            //str = str.replace(Regex("_URL_"),SDKManager.baseConfigModel!!.urlPolicy)
+         //   str = str.replace(Regex("_URL_"),"https://id.migame.vn/policy.html")
+//            Log.d("PQT Debug","-------------policy " + str)
 
-        }
-        bindingFgSync.mgFragmentLayoutSyncTnc.mgFragmentLayoutTermCondition.text= Html.fromHtml(str)
+  //      }
+    //    Log.d("PQT Debug","-------policy " + str);
+        //bindingFgSync.mgFragmentLayoutSyncTnc.mgFragmentLayoutTermCondition.text= Html.fromHtml(str)
         bindingFgSync.mgFragmentLayoutSyncTnc.mgFragmentLayoutTermCondition.movementMethod = LinkMovementMethod.getInstance()
         //bindingFgSync.mgFragmentLayoutSyncTnc.mgFragmentLayoutTermConditionCheckbox.isEnabled = isCheckBox
         bindingFgSync.mgFragmentLayoutSyncTnc.mgFragmentLayoutTermConditionCheckbox.setOnCheckedChangeListener { buttonView, isChecked -> isCheckBox=isChecked }
@@ -808,6 +827,16 @@ class MGActivity : AppCompatActivity() {
 
     private fun updateViewSync()
     {
+
+        var str = getString(R.string.mg_fragment_term_condition)
+        SDKManager.baseConfigModel?.let {
+
+            str = str.replace(Regex("_URL_"),SDKManager.baseConfigModel!!.urlPolicy)
+
+
+        }
+        bindingFgSync.mgFragmentLayoutSyncTnc.mgFragmentLayoutTermCondition.text = Html.fromHtml(str)
+        bindingFgRegister.mgFragmentLayoutRegisterTnc.mgFragmentLayoutTermCondition.text= Html.fromHtml(str)
 
         bindingFgSync.mgFragmentSyncEdId?.visibility = View.GONE
         bindingFgSync.mgFragmentSyncEdDateId?.visibility = View.GONE
@@ -1398,6 +1427,7 @@ class MGActivity : AppCompatActivity() {
     val STATE_LOGIN_GG = "LOGIN_GG"
     val STATE_LOGIN_QP = "LOGIN_QP"
     val STATE_LOGIN_MG = "LOGIN_ACCOUNT"
+    val STATE_LOGIN_TIKTOK = "LOGIN_TIKTOK"
     val STATE_REGISTER = "REGISTER_USER"
     val STATE_SYNC = "SYNC_USER"
     val STATE_VERIFY_ACCESSTOKEN = "VERIFY_ACCESSTOKEN"
@@ -1456,6 +1486,11 @@ class MGActivity : AppCompatActivity() {
 
         when(nextState)
         {
+            STATE_LOGIN_TIKTOK->{
+                currentState = STATE_LOGIN_TIKTOK
+                nextState = STATE_DONE
+                openTiktokLogin();
+            }
             STATE_LOGIN_FB->{
                 currentState = STATE_LOGIN_FB
                 nextState = STATE_DONE
@@ -1772,6 +1807,26 @@ class MGActivity : AppCompatActivity() {
 
     private fun initTikTok()
     {
+       // var url = "https://www.tiktok.com/v2/auth/authorize/?client_key=$clientKey&scope=user.info.basic&response_type=code&redirect_uri=$redirectUri&state=xyz123".trimIndent();
+
+    }
+
+    private fun openTiktokLogin()
+    {
+        val clientKey = SDKManager.getTIKTOK_KEY();
+        val scope = "user.info.basic"
+        val state = UUID.randomUUID().toString()
+        val redirectUri = SDKManager.getTIKTOK_REDIRECT_URL()
+
+        val verifiedCode = PKCEUtils.generateCodeVerifier();
+        sharedPreferences?.let {
+            sharedPreferences!!.edit().putString(KEY_SHARED_PREFERENCES_TIKTOK_VERIFIED_CODE,verifiedCode).commit();
+        }
+        val request = AuthRequest(clientKey,scope,redirectUri,verifiedCode,true)
+
+        authApi.authorize(request,AuthApi.AuthMethod.TikTokApp);
+
+
 
     }
     private fun initFacebook() {
@@ -1816,7 +1871,105 @@ class MGActivity : AppCompatActivity() {
             })
     }
 
+    private fun getLoginSDKTiktok(authCode : String) {
+       // showToast("getLoginSDKTiktok")
+        context?.let {
+            deviceID = Device.getDeviceID(it)
+            SDKManager.baseConfigModel?.let {
 
+                val URL_TiktokLogin = it.User_TiktokLogin;
+
+                if (NetworkUtils.isNetworkConnected(context!!)) {
+                    showLoading()
+                    val dateTime = SDKParams.getCurrentTime();
+                    var codeVerifier: String?;
+                    codeVerifier = "";
+                    sharedPreferences?.let {
+                        codeVerifier =
+                            it.getString(KEY_SHARED_PREFERENCES_TIKTOK_VERIFIED_CODE, "");
+
+                    }
+                    AuthenApi.getLoginTiktok(
+                        URL_TiktokLogin,
+                        SDKManager.getTIKTOK_KEY(),
+                        SDKManager.getTIKTOK_CLIENT_KEY(),
+                        authCode,
+                        codeVerifier!!,
+                        SDKManager.getTIKTOK_REDIRECT_URL(),
+                        deviceID,
+                        dateTime,
+                        Encrypt.getHashCodeLoginTiktok(authCode,SDKManager.getTIKTOK_KEY(),SDKManager.getTIKTOK_CLIENT_KEY(),dateTime,SDKManager.getSECRET_KEY())
+                    )
+                    { user, e ->
+                        hideLoading()
+                        currentState = STATE_DONE
+                        nextState()
+                        Log.d("PQT Debug","0------------ " +user);
+                        if (user != null) {
+                            //Log.d("PQT Debug","get user tiktok successfully")
+                            loginSuccess(user)
+                            TrackingManager.trackLoginEvent(
+                                context?._getString(R.string.mg_event_login_tiktok_success),
+                                null,
+                                null
+                            )
+                        } else {
+                            //Log.d("PQT Debug","get user tiktok fail")
+                            TrackingManager.trackLoginEvent(
+                                context?._getString(R.string.mg_event_login_tiktok_failed),
+                                null,
+                                e?.message
+                            )
+                            loginFailed(e?.message)
+                        }
+                    }
+                } else {
+                    hideLoading()
+                    currentState = STATE_DONE
+                    showToast(context?._getString(R.string.mg_text_no_network))
+                }
+            }
+        }
+    }
+        private fun handleTiktokAuthResponse(intent:Intent) {
+
+            if(currentState != STATE_LOGIN_TIKTOK)
+                return;
+            context?.let {
+                if (NetworkUtils.isNetworkConnected(context!!)) {
+                    val url =
+                        getString(R.string.mg_scheme_prefix) + "://" + getString(R.string.mg_host) + getString(
+                            R.string.mg_path_prefix
+                        )
+                    authApi?.getAuthResponseFromIntent(intent, url).let {
+
+                        if(!it?.authCode.isNullOrEmpty())
+                        {
+                            showToast(getString(R.string.mg_event_login_tiktok_success))
+                            getLoginSDKTiktok(it!!.authCode)
+                        }else
+                            if(it?.errorCode == -2)
+                            {
+                                hideLoading()
+                                currentState= STATE_DONE
+                                showToast(getString(R.string.mg_text_login_tiktok_cancel))
+                            }else
+                            {
+                                hideLoading();
+                                currentState = STATE_DONE
+                                showToast(getString(R.string.mg_text_login_tiktok_error))
+                            }
+
+                    }
+                } else {
+                    hideLoading()
+                    currentState = STATE_DONE;
+                    showToast(context?._getString(R.string.mg_text_no_network))
+                }
+
+
+            }
+        }
         private fun loginSDKFacebook(fbAccessToken:  com.facebook.AccessToken) {
         context?.let {
             deviceID = Device.getDeviceID(it)
@@ -2336,11 +2489,13 @@ class MGActivity : AppCompatActivity() {
         var isShowQuickPlay : Int = 1
         var isShowFB : Int = 1
         var isShowGG : Int = 1
+        var isShowTiktok : Int = 1;
         SDKManager.baseConfigModel?.SDKShowConfig?.let {
             isShowAccount = SDKManager.baseConfigModel!!.SDKShowConfig!!.isShowAccount
             isShowQuickPlay = SDKManager.baseConfigModel!!.SDKShowConfig!!.isShowQuickPlay
             isShowFB = SDKManager.baseConfigModel!!.SDKShowConfig!!.isShowFB
             isShowGG = SDKManager.baseConfigModel!!.SDKShowConfig!!.isShowGG
+            isShowTiktok = SDKManager.baseConfigModel!!.SDKShowConfig!!.isShowTiktok
         }
 
         if(isShowQuickPlay == 1){
@@ -2358,13 +2513,18 @@ class MGActivity : AppCompatActivity() {
         }else
             bindingFgLogin.mgFragmentLoginTvLogin?.visibility = View.GONE
         if (isShowGG == 1) {
-            bindingMainAccount.mgMainAccountLlGg?.visibility = View.VISIBLE
+            bindingFgLogin.mgMainAccountLlGg?.visibility = View.VISIBLE
         }else
-            bindingMainAccount.mgMainAccountLlGg?.visibility = View.GONE
+            bindingFgLogin.mgMainAccountLlGg?.visibility = View.GONE
         if (isShowFB == 1) {
-            bindingMainAccount.mgMainAccountLlFb?.visibility = View.VISIBLE
+            bindingFgLogin.mgMainAccountLlFb?.visibility = View.VISIBLE
         }else
-            bindingMainAccount.mgMainAccountLlFb?.visibility = View.GONE
+            bindingFgLogin.mgMainAccountLlFb?.visibility = View.GONE
+
+        if(isShowTiktok == 1)
+            bindingFgLogin.mgMainAccountLlTiktok?.visibility = View.VISIBLE
+        else
+            bindingFgLogin.mgMainAccountLlTiktok?.visibility = View.GONE;
     }
 
     private var iAPManager: IAPSDKManager? = null
@@ -2987,6 +3147,7 @@ class MGActivity : AppCompatActivity() {
     private val KEY_SHARED_PREFERENCES_USER = "vn.mgjsc.sdk.user"
     private val KEY_SHARED_PREFERENCES_LAST_USER = "vn.mgjsc.sdk.lastuser"
 
+    private val KEY_SHARED_PREFERENCES_TIKTOK_VERIFIED_CODE = "vn.mgjsc.sdk.TiktokVerfiedCode";
 
     private val KEY_SHARED_PREFERENCES_QUICK_PLAY = "vn.mgjsc.sdk.quickplay"
 //    private val KEY_SHARED_PREFERENCES_FACEBOOK = "vn.mgjsc.sdk.facebook"

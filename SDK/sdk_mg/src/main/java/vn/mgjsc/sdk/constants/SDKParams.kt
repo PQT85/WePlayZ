@@ -53,6 +53,13 @@ object Encrypt {
             input = "${accessToken}${userId}${dateTime}",
             key = appSecretKey
         )
+    //Login Tiktok
+    fun getHashCodeLoginTiktok(authCode:String,tiktokKey:String,clientCode:String,dateTime: String,appSecretKey: String) =
+
+        hashCode256(
+            input = "${authCode}${tiktokKey}${clientCode}${dateTime}",
+            key = appSecretKey
+        )
 
     // Login GG: (GoogleTokenID + GoogleID + Time)
     fun getHashCodeLoginGG(idToken: String, googleId: String, dateTime: String,appSecretKey: String) =
@@ -208,6 +215,13 @@ object SDKParams {
     const val PARAM_SDK_VERSION = "VersionSDK"
     const val PARAM_SDK_VERSION_GAME = "VersionGame"
     const val PARAM_SDK_BUILD_GAME = "BuildGame"
+
+    const val PARAM_TIKTOK_CODE = "TiktokCode"
+    const val PARAM_TIKTOK_CLIENT_KEY = "TiktokClientKey"
+    const val PARAM_TIKTOK_SECRET_KEY = "ToktokSecretKey"
+
+    const val PARAM_TIKTOK_CODE_VERVIFIER="TiktokVerifier"
+    const val PARAM_TIKTOK_URL_REDIRECT = "TiktokURLRedirect"
 
     const val PARAM_PRIMARY_MOBILE = "PrimaryMobile"
     const val PARAM_DISPLAY_NAME = "DisplayName"

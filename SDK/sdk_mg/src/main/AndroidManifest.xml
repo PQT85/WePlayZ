@@ -8,6 +8,10 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
 
+    <queries>
+        <package android:name="com.zhiliaoapp.musically" />
+        <package android:name="com.ss.android.ugc.trill" />
+    </queries>
     <queries> <provider android:authorities="com.facebook.katana.provider.PlatformProvider" />
         <provider android:authorities="com.facebook.orca.provider.PlatformProvider" />
         <package android:name="com.facebook.katana" />
@@ -17,14 +21,37 @@
         <activity android:name=".MGActivity"
             android:theme="@style/StyleTranslucentActivity"
             android:exported="true"
+            android:launchMode="singleTask"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize"
-            ></activity>
+            >
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:host="@string/mg_host"
+                    android:scheme="@string/mg_scheme_prefix"
+                    android:pathPrefix="@string/mg_path_prefix"
+                    />
+            </intent-filter>
+        </activity>
 
         <activity android:name=".BannerMiGameActivity"
             android:theme="@style/StyleTranslucentActivity" android:exported="true"/>
         <meta-data android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id"/>
         <meta-data android:name="com.facebook.sdk.ClientToken" android:value="@string/facebook_client_token"/>
+
+
+        <!--activity android:name=".TiktokCallbackActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:host="tiktokcallback"
+                    android:scheme="@string/mg_scheme_prefix"
+                    />
+            </intent-filter>
+        </activity-->
     </application>
 
 </manifest>

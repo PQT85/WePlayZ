@@ -50,7 +50,7 @@ data class BaseConfigsDataModel(
     @SerializedName("User_LostPassword") val User_LostPassword: String,
     @SerializedName("User_FaceBookLogin") val User_FaceBookLogin: String,
     @SerializedName("User_GoogleLogin") val User_GoogleLogin: String,
-
+    @SerializedName("User_TiktokLogin") val User_TiktokLogin: String ,
     @SerializedName("User_SynUser") val User_SynUser: String,
 
     @SerializedName("Ads_List") val Get_Banner: String,
