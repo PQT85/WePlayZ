@@ -47,19 +47,19 @@ android {
 //        }
         debug {
 //            keyAlias 'migamestore'
-            keyAlias 'migame'
-            keyPassword 'BaoNgoc2017'
+      //      keyAlias 'migame'
+       //     keyPassword 'BaoNgoc2017'
 //            storeFile file("/Users/songpq/Desktop/OutSource/Migame/SDK_V2/New_SDK_24_01_22/New_SDK/app/MiGameStore.jks")
-            storeFile file("MiGame.jks")
-            storePassword 'BaoNgoc2017'
+         //   storeFile file("MiGame.jks")
+           // storePassword 'BaoNgoc2017'
         }
         release {
            // keyAlias 'migamestore'
-            keyAlias 'migame'
-            keyPassword 'BaoNgoc2017'
+           // keyAlias 'migame'
+           // keyPassword 'BaoNgoc2017'
            // storeFile file("MiGameStore.jks")
-            storeFile file("MiGame.jks")
-            storePassword 'BaoNgoc2017'
+          //  storeFile file("MiGame.jks")
+           // storePassword 'BaoNgoc2017'
 
         }
     }
@@ -156,6 +156,9 @@ dependencies {
     implementation 'com.google.firebase:firebase-inappmessaging-display:20.1.2'
     //implementation 'com.google.firebase:firebase-analytics:20.1.0'
     implementation 'com.android.support:multidex:1.0.3'
+
+    implementation 'com.tiktok.open.sdk:tiktok-open-sdk-core:2.4.0'
+    implementation 'com.tiktok.open.sdk:tiktok-open-sdk-auth:2.4.0'
 //    // Google Play Billing
 //    implementation 'com.android.billingclient:billing:2.1.0'
 //    implementation 'com.android.billingclient:billing-ktx:2.1.0'
