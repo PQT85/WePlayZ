@@ -7,7 +7,7 @@
     <string name="mg_forget_pass_title">QUÊN MẬT KHẨU</string>
     <!--string name="facebook_app_id">202497911742167</string-->
     <!--string name="facebook_app_id">347050497239570</string-->
-
+    <string name="mg_fragment_tnc_agreement">Vui lòng đồng ý các điều khoản </string>
 
     //chien vuong tam quoc
 <!--    <string name="facebook_app_id">202497911742167</string>-->
@@ -32,7 +32,9 @@
 	<string name="mg_text_error_banner_config">Chưa đọc được Banner ở config.</string>
     <string name="mg_text_error_get_banner">Tải quảng cáo lỗi.</string>
 
-
+    <string name="mg_host">tiktokcallback</string>
+    <string name="mg_scheme_prefix">weplayz</string>
+    <string name="mg_path_prefix">/mg19/</string>
     <string name="mg_fragment_term_condition"><![CDATA[
     Tôi đồng ý với <font color="#000086"> <a href="_URL_" style="color:red";>Điều khoản và chính sách dịch vụ </font></a>
 ]]></string>
@@ -76,14 +78,18 @@
     <string name="mg_text_confirm">XÁC NHẬN</string>
 
     <string name="mg_text_skip_sync">Bỏ qua</string>
-
+    <string name="mg_text_login_option_selection">Hoặc</string>
     <string name="mg_text_login_facebook_error">Đăng nhập tài khoản Facebook lỗi!</string>
     <string name="mg_text_login_facebook_success">Đăng nhập tài khoản Facebook thành công!</string>
     <string name="mg_text_login_facebook_cancel">Bạn huỷ đăng nhập Facebook!</string>
+    <string name="mg_text_login_tiktok_cancel">Bạn hủy đăng nhập Tiktok</string>
     <string name="mg_text_login_google_success">Đăng nhập tài khoản Google thành công!</string>
     <string name="mg_text_login_google_error">Đăng nhập tài khoản Google lỗi!</string>
+
     <string name="mg_text_fragment_login_hint_captcha">Xác nhận:</string>
 
+    <string name="mg_text_login_tiktok_error">Đăng nhập tài khoản Tiktok lỗi!</string>
+    <string name="mg_text_login_tiktok_success">Đăng nhập tài khoản Tiktok thành công!</string>
     <string name="mg_text_forget_pass_login">Đăng nhập</string>
     <string name="mg_text_forget_pass_register">Chưa có tài khoản?</string>
     <string name="mg_text_forget_pass_email_required">Tài khoản hoặc email là bắt buộc</string>
@@ -158,6 +164,10 @@
     <string name="mg_event_login_fb_success">Login_FB_Success</string>
     <string name="mg_event_login_fb_failed">Login_FB_Failed</string>
 
+    //event tracking login tiktok
+    <string name="mg_event_click_login_tiktok">Login_Tiktok</string>
+    <string name="mg_event_login_tiktok_success">Login_Tiktok_Success</string>
+    <string name="mg_event_login_tiktok_failed">Login_Tiktok_Failed</string>
     //event tracking login gg
     <string name="mg_event_click_login_gg">Login_GG</string>
     <string name="mg_event_login_gg_success">Login_GG_Success</string>
