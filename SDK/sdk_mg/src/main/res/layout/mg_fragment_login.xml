@@ -5,12 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
-
+  android:layout_gravity="center"
     >
 
     <include
         android:id="@+id/mg_fragment_login_ll_back"
-        layout="@layout/mg_fragment_layout_back" />
+        layout="@layout/mg_fragment_layout_back"
+        android:visibility="gone"
+        />
     <androidx.core.widget.NestedScrollView
         android:paddingLeft="@dimen/mg_padding_left_right_content"
         android:paddingRight="@dimen/mg_padding_left_right_content"
@@ -19,13 +21,15 @@
         android:id="@+id/fragment_login_main_scrollview"
         android:layout_width="match_parent"
         android:foregroundGravity="center"
-        android:layout_height="match_parent">
+
+        android:layout_height="wrap_content">
         <LinearLayout
             android:paddingBottom="1dp"
 
             android:id="@+id/fragment_login_ll_input"
             android:layout_gravity="center|top"
-            android:gravity="center|top"
+            android:gravity="center_horizontal"
+
             android:paddingLeft="@dimen/padding_left_right_input"
             android:paddingRight="@dimen/padding_left_right_input"
             android:orientation="vertical"
@@ -333,6 +337,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <ImageView
+                    android:visibility="gone"
                     android:src="@drawable/cn"
                     android:layout_width="34dp"
                     android:layout_height="@dimen/mg_size_icon_button"/>
@@ -352,7 +357,9 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center"
+                android:id="@+id/extra_login"
                 >
+
                 <View android:layout_height="2dp"
                     android:layout_width="0dp"
                     android:layout_weight="1"
