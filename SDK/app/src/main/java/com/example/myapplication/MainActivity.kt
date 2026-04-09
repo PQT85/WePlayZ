@@ -1,13 +1,7 @@
 package com.example.myapplication
 
-import android.accounts.AccountManager
 import android.os.Bundle
-import android.text.Html
-import android.text.TextUtils
-import android.text.method.LinkMovementMethod
 import android.util.Log
-import android.view.View.*
-import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
@@ -15,14 +9,11 @@ import androidx.appcompat.app.AppCompatActivity
 //import vn.mg.tanvuong3q.R;
 //import vn.mg.ditienhiep.R;
 //import vn.mg.tamquocchienthan.R;
-import com.daihiep.thinhkinh.R;
 import com.daihiep.thinhkinh.databinding.ActivityMainBinding
 //import kotlinx.android.synthetic.main.activity_main.*
-import vn.mgjsc.sdk.SDKManager
-import vn.mgjsc.sdk.models.PaymentDataGameModel
-import vn.mgjsc.sdk.models.UserAccountModel
-import vn.mgjsc.sdk.utils.ImmersiveControl
-import java.util.jar.Manifest
+import vn.weplayz.sdk.SDKWeplayZManager
+import vn.weplayz.sdk.models.PaymentDataGameModel
+import vn.weplayz.sdk.models.UserAccountModel
 
 
 class MainActivity : AppCompatActivity() {
@@ -52,14 +43,14 @@ class MainActivity : AppCompatActivity() {
 
 //        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         binding = ActivityMainBinding.inflate(layoutInflater);
-        SDKManager.requestPermissionForPN(this);
+        SDKWeplayZManager.requestPermissionForPN(this);
       //  setContentView(R.layout.activity_main)
         setContentView(binding.root)
       //  getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,WindowManager.LayoutParams.FLAG_SECURE)
      //   SDKManager.initSDK(application,"cvtq09754b9218cc9f9d6e9192be85f514cdK","cvtq5f4feb3e6070a615c7ef49f801823d85S","682249380643-bch2l5lo88jj1st1evb2tnf5mfs5bha2.apps.googleusercontent.com",null);
-        SDKManager.initSDK(application,"httde34a1fd5977bfe2141087928d420d277AK","httd65bb642c260b025785001992d9744fffSK","62115860010-rs5487dshpt850k60mvet9nojmkocv0d.apps.googleusercontent.com",null,"123");
+        SDKWeplayZManager.initSDK(application,"demo222222AK","demo222222SK","62115860010-rs5487dshpt850k60mvet9nojmkocv0d.apps.googleusercontent.com",null,"123");
         //SDKManager.setIsDebug(true)
-        ImmersiveControl.activateImmersiveMode(this);
+        vn.weplayz.sdk.utils.ImmersiveControl.activateImmersiveMode(this);
        // SDKManager.showBanner(this,"test",false);
         binding.Init.setOnClickListener {
             //if(!TextUtils.isEmpty(edAppKey.text.toString())  && !TextUtils.isEmpty(edSecretKey.text.toString()))
@@ -74,8 +65,8 @@ class MainActivity : AppCompatActivity() {
       //  binding.testHyperlink.text = Html.fromHtml(getString(R.string.mg_fragment_term_condition));//"Click <a href='google.com'>Google</a>");
        // binding.testHyperlink.movementMethod = LinkMovementMethod.getInstance();
 
-        SDKManager.requestPermissionForPN(this);
-        val authen = object : SDKManager.AuthUserInterface
+        SDKWeplayZManager.requestPermissionForPN(this);
+        val authen = object : SDKWeplayZManager.AuthUserInterface
         {
             override
             fun onUserLoginSuccess(userAccountModel: UserAccountModel)
@@ -118,13 +109,13 @@ class MainActivity : AppCompatActivity() {
             }
         }
         binding.login.setOnClickListener {
-            SDKManager.login(this,authen)
+            SDKWeplayZManager.login(this,authen)
         }
         binding.logout.setOnClickListener{
-            SDKManager.logout(this,authen)
+            SDKWeplayZManager.logout(this,authen)
         }
 
-        val payment = object:SDKManager.PaymentUserCallback{
+        val payment = object:SDKWeplayZManager.PaymentUserCallback{
             override fun onUserPaymentSuccess(chargeToGameResult: PaymentDataGameModel?) {
                 showToast("success package:"+chargeToGameResult?.packageID)
             }
@@ -141,7 +132,7 @@ class MainActivity : AppCompatActivity() {
         }
         binding.btnPayment.setOnClickListener {
 
-            SDKManager.payment(this,binding.edPackage.text.toString(),System.currentTimeMillis().toString()
+            SDKWeplayZManager.payment(this,binding.edPackage.text.toString(),System.currentTimeMillis().toString()
                 ,binding.edServer.text.toString(),"","","",payment)
         }
 
