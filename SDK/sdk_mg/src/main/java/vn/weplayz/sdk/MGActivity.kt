@@ -2485,14 +2485,17 @@ class MGActivity : AppCompatActivity() {
             isShowTiktok = SDKWeplayZManager.baseConfigModel!!.SDKShowConfig!!.isShowTiktok
         }
 
+        //if(currentState == STATE_LOGIN_MG)
+        //    bindingFgLogin.mgFragmentLayoutBackIvBack?.visibility = View.GONE;
+
+        if((isShowFB + isShowGG + isShowTiktok) == 0)
+            bindingFgLogin.extraLogin?.visibility = View.GONE
         if(isShowQuickPlay == 1){
-            bindingMainAccount.mgMainAccountLlQp?.visibility = View.VISIBLE
+            bindingFgLogin.mgMainAccountLlQp?.visibility = View.VISIBLE
         }
         else
         {
-            bindingMainAccount.mgMainAccountLlQp?.visibility = View.GONE
-
-
+            bindingFgLogin.mgMainAccountLlQp?.visibility = View.GONE
         }
 
         if (isShowAccount == 1) {

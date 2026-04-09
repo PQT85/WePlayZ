@@ -12,5 +12,5 @@ data class SDKShowConfigModel(
     @SerializedName("IsShowApple") val isShowApple: Int,
     @SerializedName("IsShowAds") val IsShowAds: Int = 0,
     @SerializedName("IsCollapseInfo") val IsCollapseInfo: Int,
-    @SerializedName("IsShowTiktok") val isShowTiktok: Int
+    @SerializedName("IsShowTikTok") val isShowTiktok: Int
 )
